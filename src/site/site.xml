@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+ <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.7</version>
+  </skin>
+  <body>
+    <links>
+      <!-- Cucumber -->
+      <!-- Selenium WebDriver -->
+      <!-- Slfj4 -->
+      <!-- JUnit -->
+      <item name="Apache" href="http://www.apache.org/" />
+      <item name="Maven" href="http://maven.apache.org/"/>
+    </links>
+
+    <menu name="Java Coaching">
+      <item name="Introduction" href="index.html"/>
+      <item name="about" href="about.html"/>
+      <item name="contact" href="contact.html" />
+      <item name="industries" href="industries.html"/>
+      <item name="servies" href="services.html" />
+    </menu>
+
+    <menu ref="reports"/>
+
+  </body>
+</project>
