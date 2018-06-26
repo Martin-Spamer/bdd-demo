@@ -1,11 +1,11 @@
 
 package automation.bdd;
 
-import static org.junit.Assume.assumeNotNull;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
+
+import static org.junit.Assume.assumeNotNull;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
@@ -41,10 +41,6 @@ public class TestRunner extends AbstractTestRunner {
     @After
     private void after() {
         this.log.trace("@After");
-    }
-
-    public TestRunner() {
-        super();
     }
 
 }

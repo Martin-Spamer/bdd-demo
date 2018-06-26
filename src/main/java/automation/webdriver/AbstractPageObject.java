@@ -135,9 +135,24 @@ public abstract class AbstractPageObject {
     /**
      * Close the webDriver instance.
      */
-    protected void close() {
+    public void close() {
         assertNotNull(this.webDriver);
         this.webDriver.close();
+    }
+
+
+    /**
+     * Checks if this page has loaded.
+     */
+    public void isLoaded() {
+        assertNotNull(this.webDriver.getCurrentUrl());        
+        assertNotNull(this.webDriver.getTitle());
+    }
+    
+    
+    public void quit() {
+        assertNotNull(this.webDriver);
+        this.webDriver.quit();
     }
 
 }

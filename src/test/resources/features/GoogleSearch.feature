@@ -5,6 +5,6 @@ Feature: Demonstrate BDD with Cucumber-jvm and WebDriver
 	So that others might consider using BDD
 
 Scenario: Search for Hull Digital website 
-	Given The Google Search Page
-	When we search for 'Hull Digital'
-	Then We see 'Hull Digital' appears in the results
+	Given the Google Search Page
+	When we search for Hull Digital
+	Then we see Hull Digital appears in the results

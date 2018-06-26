@@ -30,6 +30,9 @@ public class WebDriverFactoryTest {
         webDriver.close();
     }
 
+    /**
+     * Unit test to chrome driver.
+     */
     @Test
     public final void testChromeDriver() {
         assumeTrue(TestContext.isLocal());
@@ -40,6 +43,9 @@ public class WebDriverFactoryTest {
         webDriver.close();
     }
 
+    /**
+     * Unit test to firefox driver.
+     */
     @Test
     public final void testFirefoxDriver() {
         assumeTrue(TestContext.isLocal());

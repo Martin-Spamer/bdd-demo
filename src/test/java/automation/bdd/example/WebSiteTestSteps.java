@@ -19,7 +19,7 @@ public class WebSiteTestSteps {
      * The home page.
      *
      */
-    @Given("^The Home Page$")
+    @Given("^the website landing page$")
     public void exampleHomePage() {
         this.exampleSite.open();
     }
@@ -39,7 +39,7 @@ public class WebSiteTestSteps {
      * The page is loaded.
      *
      */
-    @When("^the page is loaded$")
+    @When("^the landing page is loaded$")
     public void thePageIsLoaded() {
         this.exampleSite.thePageIsLoaded();
     }
@@ -58,7 +58,7 @@ public class WebSiteTestSteps {
     /**
      * Home page is valid.
      */
-    @When("^Page has a valid navigation bar$")
+    @When("^the page has a valid navigation bar$")
     public void homePageIsValid() {
         this.exampleSite.homePageIsValid();
     }
@@ -66,7 +66,7 @@ public class WebSiteTestSteps {
     /**
      * We click.
      *
-     * @param text            the text
+     * @param text the text
      */
     @When("^we click \"(.*?)\"$")
     public void weClick(final String text) {

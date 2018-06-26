@@ -1,11 +1,11 @@
 
 package automation.bdd;
 
-import static org.junit.Assume.assumeNotNull;
-
 import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.Assume.assumeNotNull;
 
 /**
  * AbstractTestRunner class.
@@ -29,7 +29,7 @@ public abstract class AbstractTestRunner {
      */
     @BeforeClass
     public static void beforeTests() {
-        final String targetEnvironment = System.getProperty("targetEnvironment");
+        final String targetEnvironment = System.getProperty("targetEnvironment","local");
         assumeNotNull(
                 "Expected the target environment to be specified in a Java System property (use -DtargetEnvironment={DEV|SIT|...})",
                 targetEnvironment);
