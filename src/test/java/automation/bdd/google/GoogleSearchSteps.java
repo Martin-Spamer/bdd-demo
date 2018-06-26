@@ -19,7 +19,7 @@ public class GoogleSearchSteps {
     /**
      * The home page.
      */
-    @Given("^The Google Search Page$")
+    @Given("the Google Search Page$")
     public void exampleHomePage() {
         this.googleSite = new GoogleSearchSite();
         this.googleSite.open();
@@ -28,7 +28,7 @@ public class GoogleSearchSteps {
     /**
      * The google search page is loaded in firefox.
      */
-    @Given("^The Google Search Page is loaded in Firefox$")
+    @Given("^the Google Search Page is loaded in Firefox$")
     public void theGoogleSearchPageIsLoadedInFirefox() {
         this.googleSite = new GoogleSearchSite(new FirefoxDriver());
         this.googleSite.open();
@@ -40,7 +40,7 @@ public class GoogleSearchSteps {
      * @param browserName
      *            the browser name
      */
-    @Given("^The Google Search Page is loaded in \"(.*?)\"$")
+    @Given("^the Google Search Page is loaded in \"(.*?)\"$")
     public void theGoogleSearchPageIsLoadedIn(final String browserName) {
         this.googleSite = new GoogleSearchSite(new FirefoxDriver());
         this.googleSite.open();
@@ -71,10 +71,16 @@ public class GoogleSearchSteps {
      * @param queryText
      *            the query text
      */
-    @Then("We see {string} appears in the results")
+    @Then("We see {string} appears in the search results")
     public void appearsInExpectedResults(final String queryText) {
         this.googleSite.verify(queryText);
         // in a real test suite we would close the browser!
     }
 
+    @Then("we see Hull Digital appears in the search results")
+    public void hullDigitalAppearsInResults() {
+        this.googleSite.verify("Hull Digital");        
+        // in a real world test suite we would close the browser!
+        // leaving it open so audience can see the results.
+    }
 }

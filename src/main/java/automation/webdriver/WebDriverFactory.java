@@ -116,6 +116,8 @@ public enum WebDriverFactory {
 
     /**
      * Configure time out.
+     *
+     * @param webDriver the web driver
      */
     protected void configureTimeOut(final WebDriver webDriver) {
         webDriver.manage().timeouts().pageLoadTimeout(TestContext.pageWait(), TimeUnit.SECONDS);

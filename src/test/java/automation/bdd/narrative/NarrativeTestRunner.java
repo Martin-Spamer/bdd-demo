@@ -1,8 +1,6 @@
 
 package automation.bdd.narrative;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 
 import automation.bdd.AbstractTestRunner;
@@ -20,21 +18,4 @@ import cucumber.api.junit.Cucumber;
         features = "classpath:features",
         monochrome = true)
 public class NarrativeTestRunner extends AbstractTestRunner {
-
-    /**
-     * Before.
-     */
-    @Before
-    protected void before() {
-        System.out.print("@Before");
-    }
-
-    /**
-     * After.
-     */
-    @After
-    protected void after() {
-        System.out.print("@After");
-    }
-
 }

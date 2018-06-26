@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assume.assumeTrue;
 
 /**
- * The Class TestContextTest.
+ * Unit Test the TestContext.
  */
 public class TestContextTest {
 
