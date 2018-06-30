@@ -1,4 +1,4 @@
-| [Home Page](index.html) | [About Us](about.html) | [Our Clients](clients.html) | [Contact Us](contact.html) | [Industries](industries.html) | [Our Services](services.html) |
+| [Home Page](index.html) | [About Us](about.html) | [Our Services](services.html) | [Industries](industries.html) | [Our Clients](clients.html) | [Contact Us](contact.html) |
 
 # Clients
 

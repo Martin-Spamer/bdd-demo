@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project>
+<project name="BDD Demo">
+	<version position="bottom" />
+	<publishDate position="bottom" />
+
 	<skin>
 		<groupId>org.apache.maven.skins</groupId>
 		<artifactId>maven-fluido-skin</artifactId>
 		<version>1.7</version>
 	</skin>
+
 	<body>
 		<links>
 			<!-- Cucumber -->
@@ -23,7 +27,8 @@
 			<item name="servies" href="services.html" />
 		</menu>
 
-		<menu ref="reports" />
-
+		<footer><![CDATA[All rights reserved.]]></footer>
+	
 	</body>
+	
 </project>
