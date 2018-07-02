@@ -79,8 +79,9 @@ public class GoogleSearchSteps {
 
     @Then("we see Hull Digital appears in the search results")
     public void hullDigitalAppearsInResults() {
-        this.googleSite.verify("Hull Digital");        
-        // in a real world test suite we would close the browser!
+        this.googleSite.verify("Hull Digital");
+        // In a real world test, the suite would close the browser!
         // leaving it open so audience can see the results.
+        // this.googleSite.quit();
     }
 }

@@ -49,8 +49,9 @@ public abstract class AbstractWebSite {
      */
     public void closeSite() {
         if (this.webDriver != null) {
-            this.webDriver.close(); // use to close single window
-            // this.webDriver.quit(); // use to close entire browser
+            // this.webDriver.close(); // use to close single window
+            this.webDriver.quit(); // use to close entire browser
+            this.webDriver = null;
         }
     }
 

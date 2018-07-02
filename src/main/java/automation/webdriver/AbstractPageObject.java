@@ -59,12 +59,10 @@ public abstract class AbstractPageObject {
         this.webDriverWait = new WebDriverWait(this.webDriver, timeOutInSeconds, retryInterval);
     }
 
-    /**
-     * get the base URL for the site.
-     *
-     * @return the string
-     */
-    protected abstract String pageUrl();
+    protected String pageUrl() {
+        // look for @PageUrl
+        return null;
+    }
 
     /**
      * Open page default page.
@@ -72,7 +70,7 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     public AbstractPageObject open() {
-        return openPage(pageUrl());
+        return open(pageUrl());
     }
 
     /**
@@ -81,12 +79,20 @@ public abstract class AbstractPageObject {
      * @param pageUrl the page url
      * @return the abstract page object
      */
-    public AbstractPageObject openPage(final String pageUrl) {
+    public AbstractPageObject open(final String pageUrl) {
         assertNotNull("webDriver must be defined for PageObject", this.webDriver);
         assertNotNull("pageUrl must be defined for PageObject", pageUrl);
         this.webDriver.get(pageUrl);
         PageFactory.initElements(this.webDriver, this);
         return this;
+    }
+
+    /**
+     * Checks if this page has loaded.
+     */
+    public void isLoaded() {
+        assertNotNull(this.webDriver.getCurrentUrl());
+        assertNotNull(this.webDriver.getTitle());
     }
 
     /**
@@ -140,16 +146,6 @@ public abstract class AbstractPageObject {
         this.webDriver.close();
     }
 
-
-    /**
-     * Checks if this page has loaded.
-     */
-    public void isLoaded() {
-        assertNotNull(this.webDriver.getCurrentUrl());        
-        assertNotNull(this.webDriver.getTitle());
-    }
-    
-    
     public void quit() {
         assertNotNull(this.webDriver);
         this.webDriver.quit();

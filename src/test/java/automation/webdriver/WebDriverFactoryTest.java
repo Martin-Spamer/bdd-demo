@@ -3,6 +3,8 @@ package automation.webdriver;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -17,6 +19,8 @@ import automation.TestContext;
  */
 public class WebDriverFactoryTest {
 
+    private static final Logger LOG = LoggerFactory.getLogger(WebDriverFactoryTest.class);
+
     /**
      * Unit test to edge driver.
      */
@@ -27,7 +31,7 @@ public class WebDriverFactoryTest {
         assertNotNull(webDriver);
         webDriver.get("http://127.0.0.1:8080");
         assertNotNull(webDriver.getTitle());
-        webDriver.close();
+        webDriver.quit();
     }
 
     /**
@@ -40,7 +44,7 @@ public class WebDriverFactoryTest {
         assertNotNull(webDriver);
         webDriver.get("http://127.0.0.1:8080");
         assertNotNull(webDriver.getTitle());
-        webDriver.close();
+        webDriver.quit();
     }
 
     /**
@@ -53,7 +57,7 @@ public class WebDriverFactoryTest {
         assertNotNull(webDriver);
         webDriver.get("http://127.0.0.1:8080");
         assertNotNull(webDriver.getTitle());
-        webDriver.close();
+        webDriver.quit();
     }
 
 }
