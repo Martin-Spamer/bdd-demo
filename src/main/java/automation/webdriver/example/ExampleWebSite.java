@@ -76,19 +76,19 @@ public class ExampleWebSite extends AbstractWebSite {
     }
 
     public void theHomePageContains(final String text) {
-        Assert.fail("theHomePageContains");
+        this.page.contains(text);
     }
 
     public void homePageIsValid() {
-        Assert.fail("homePageIsValid");
+        this.page.verify();
     }
 
     public void click(final String text) {
-        Assert.fail("click");
+        this.page.click(text);
     }
 
     public void closeBrowser() {
-        Assert.fail("closeBrowser");
+        this.page.close();
     }
 
 }

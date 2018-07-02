@@ -1,6 +1,7 @@
 
 package automation.webdriver;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -136,6 +137,14 @@ public abstract class AbstractPageObject {
         assertTrue(webElement.isDisplayed());
         assertNotNull(webElement.getText());
         return this;
+    }
+
+    public void click(final String text) {
+        this.webDriver.findElement(By.linkText(text));
+    }
+
+    public void contains(final String text) {
+        this.webDriver.getPageSource().contains(text);
     }
 
     /**
