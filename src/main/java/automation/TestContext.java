@@ -2,9 +2,19 @@
 package automation;
 
 /**
- * The Class TestContext.
+ * TestContext class.
  */
 public class TestContext {
+
+    /**
+     * Run WebDriver Headless.
+     *
+     * @return true, if headless
+     */
+    public static boolean headless() {
+        final String property = System.getProperty("headless", "TRUE");
+        return Boolean.valueOf(property);
+    }
 
     /**
      * Checks if is local.
@@ -12,8 +22,17 @@ public class TestContext {
      * @return true, if checks if is local
      */
     public static boolean isLocal() {
-        String property = System.getProperty("isLocal");
+        final String property = System.getProperty("isLocal");
         return Boolean.valueOf(property);
+    }
+
+    /**
+     * Local browser.
+     *
+     * @return the string
+     */
+    public static String localBrowser() {
+        return System.getProperty("localBrowser", "Chrome");
     }
 
     /**
@@ -22,27 +41,75 @@ public class TestContext {
      * @return true, if checks if is tomcat
      */
     public static boolean isTomcat() {
-        String property = System.getProperty("isTomcat");
+        final String property = System.getProperty("isTomcat");
         return Boolean.valueOf(property);
     }
 
     /**
-     * Implicit wait.
+     * Tomcat url.
      *
-     * @return the long
+     * @return the string
      */
-    public static long implicitWait() {
-        String property = System.getProperty("implicitWait", "100");
-        return Long.parseLong(property);
+    public static String tomcatUrl() {
+        return System.getProperty("tomcatUrl", "http://127.0.0.1:8080");
     }
 
     /**
-     * Page wait.
+     * Checks if is jenkins.
+     *
+     * @return true, if checks if is jenkins
+     */
+    public static boolean isJenkins() {
+        final String property = System.getProperty("isJenkins");
+        return Boolean.valueOf(property);
+    }
+
+    /**
+     * Checks if is grid.
+     *
+     * @return true, if checks if is grid
+     */
+    public static boolean isGrid() {
+        final String property = System.getProperty("isGrid");
+        return Boolean.valueOf(property);
+    }
+
+    /**
+     * Grid url.
+     *
+     * @return the string
+     */
+    public static String seleniumUrl() {
+        return System.getProperty("seleniumUrl", "http://127.0.0.1:4444");
+    }
+
+    /**
+     * Page wait in seconds, defaults to 4 seconds.
      *
      * @return the long
      */
     public static long pageWait() {
-        String property = System.getProperty("pageWait", "4");
+        final String property = System.getProperty("pageWait", "4");
+        return Long.parseLong(property);
+    }
+
+    /**
+     * Implicit wait in milliseconds, default to tenth of a second.
+     *
+     * @return the implicitWait as long value.
+     */
+    public static long implicitWait() {
+        final String property = System.getProperty("implicitWait", "100");
+        return Long.parseLong(property);
+    }
+
+    /**
+     * Explicit wait in milliseconds, defaults to 1 second.
+     *
+     * @return the explicitWait as long value.
+     */
+    public static long explicitWait() {
+        final String property = System.getProperty("explicitWait", "1000");
         return Long.parseLong(property);
     }
 

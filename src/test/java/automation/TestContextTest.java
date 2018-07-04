@@ -27,7 +27,7 @@ public class TestContextTest {
      */
     @Test
     public void instantiation() {
-        TestContext target = new TestContext();
+        final TestContext target = new TestContext();
         assertThat(target, notNullValue());
     }
 
@@ -35,7 +35,7 @@ public class TestContextTest {
      * Checks if is local.
      */
     @Test
-    public void isLocal() {
+    public void testIsLocal() {
         assumeTrue(TestContext.isLocal());
     }
 
@@ -43,7 +43,7 @@ public class TestContextTest {
      * Checks if is tomcat.
      */
     @Test
-    public void isTomcat() {
+    public void testIsTomcat() {
         assumeTrue(TestContext.isTomcat());
     }
 

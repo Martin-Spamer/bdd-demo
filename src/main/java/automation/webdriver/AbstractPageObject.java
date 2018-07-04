@@ -60,6 +60,11 @@ public abstract class AbstractPageObject {
         this.webDriverWait = new WebDriverWait(this.webDriver, timeOutInSeconds, retryInterval);
     }
 
+    /**
+     * Page url.
+     *
+     * @return the string
+     */
     protected String pageUrl() {
         // look for @PageUrl
         return null;
@@ -139,10 +144,20 @@ public abstract class AbstractPageObject {
         return this;
     }
 
+    /**
+     * Click.
+     *
+     * @param text the text
+     */
     public void click(final String text) {
         this.webDriver.findElement(By.linkText(text));
     }
 
+    /**
+     * Contains.
+     *
+     * @param text the text
+     */
     public void contains(final String text) {
         this.webDriver.getPageSource().contains(text);
     }
@@ -155,6 +170,9 @@ public abstract class AbstractPageObject {
         this.webDriver.close();
     }
 
+    /**
+     * Quit.
+     */
     public void quit() {
         assertNotNull(this.webDriver);
         this.webDriver.quit();

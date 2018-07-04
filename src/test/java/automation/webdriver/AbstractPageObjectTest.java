@@ -59,6 +59,11 @@ public class AbstractPageObjectTest {
         }
 
         @Override
+        protected String pageUrl() {
+            return "http://127.0.0.1:8080";
+        }
+
+        @Override
         public AbstractPageObject verify() {
             super.verify();
             this.pageHeader.verify();
@@ -74,6 +79,7 @@ public class AbstractPageObjectTest {
         assertNotNull(aPage);
         assertEquals(aPage, aPage.open());
         assertEquals(aPage, aPage.verify());
+        LOG.info("{}", aPage.toString());
         aPage.quit();
     }
 
@@ -83,6 +89,7 @@ public class AbstractPageObjectTest {
         assertNotNull(sitePage);
         assertEquals(sitePage, sitePage.open());
         assertEquals(sitePage, sitePage.verify());
+        LOG.info("{}", sitePage.toString());
         sitePage.quit();
     }
 

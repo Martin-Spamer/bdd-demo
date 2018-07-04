@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
@@ -28,7 +30,7 @@ public enum WebDriverFactory {
     CHROME("Chrome") {
         @Override
         public WebDriver create() {
-            System.setProperty("webdriver.chrome.driver", "web-driver-bin/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", BIN_CHROME_DRIVER);
             return new ChromeDriver();
         }
     },
@@ -37,7 +39,7 @@ public enum WebDriverFactory {
     EDGE("Edge") {
         @Override
         public WebDriver create() {
-            System.setProperty("webdriver.edge.driver", "web-driver-bin/MicrosoftWebDriver.exe");
+            System.setProperty("webdriver.edge.driver", BIN_EDGE_DRIVER);
             return new EdgeDriver();
         }
     },
@@ -46,8 +48,21 @@ public enum WebDriverFactory {
     FIREFOX("Firefox") {
         @Override
         public WebDriver create() {
-            System.setProperty("webdriver.firefox.driver", "web-driver-bin/geckodriver.exe");
+            System.setProperty("webdriver.firefox.driver", BIN_GECKO_DRIVER);
             return new FirefoxDriver();
+        }
+    },
+
+    /** Use the Firefox browser. */
+    HEADLESS("Headless") {
+        @Override
+        public WebDriver create() {
+            System.setProperty("webdriver.firefox.driver", BIN_PHANTOMJS);
+            final DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setJavascriptEnabled(true);
+            capabilities.setCapability("takesScreenshot", true);
+            capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, BIN_PHANTOMJS);
+            return new PhantomJSDriver(capabilities);
         }
     },
 
@@ -55,10 +70,20 @@ public enum WebDriverFactory {
     IE("InternetExplorer") {
         @Override
         public WebDriver create() {
-            System.setProperty("webdriver.ie.driver", "web-driver-bin/IEDriverServer.exe");
+            System.setProperty("webdriver.ie.driver", BIN_IE_DRIVER);
             return new InternetExplorerDriver();
         }
     };
+
+    private static final String BIN_IE_DRIVER = "web-driver-bin/IEDriverServer.exe";
+
+    private static final String BIN_CHROME_DRIVER = "web-driver-bin/chromedriver.exe";
+
+    private static final String BIN_EDGE_DRIVER = "web-driver-bin/MicrosoftWebDriver.exe";
+
+    private static final String BIN_GECKO_DRIVER = "web-driver-bin/geckodriver.exe";
+
+    private static final String BIN_PHANTOMJS = "web-driver-bin/phantomjs.exe";
 
     /** provided logging. */
     protected final static Logger log = LoggerFactory.getLogger(WebDriverFactory.class);
@@ -153,12 +178,11 @@ public enum WebDriverFactory {
 
         URL gridUrl;
         try {
-            gridUrl = new URL("http://localhost");
+            gridUrl = new URL("http://localhost:4444");
             return new RemoteWebDriver(gridUrl, desiredCapabilities);
         } catch (final MalformedURLException e) {
             log.error(e.toString());
         }
         return null;
     }
-
 }

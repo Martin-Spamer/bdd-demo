@@ -1,10 +1,11 @@
 
 package automation.webdriver.google;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import static org.junit.Assert.assertTrue;
 
 import automation.webdriver.AbstractPageObject;
 
@@ -13,6 +14,7 @@ import automation.webdriver.AbstractPageObject;
  */
 public class GoogleResultPage extends AbstractPageObject {
 
+    /** The results. */
     @FindBy(xpath = "//a[contains(.,'Example')]")
     private WebElement results;
 
@@ -33,6 +35,11 @@ public class GoogleResultPage extends AbstractPageObject {
         super(webDriver);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see automation.webdriver.AbstractPageObject#pageUrl()
+     */
     @Override
     protected String pageUrl() {
         return "http://www.google.co.uk";
@@ -45,8 +52,8 @@ public class GoogleResultPage extends AbstractPageObject {
      *            the text
      */
     public void verify(final String text) {
-        Assert.assertTrue("The found", this.results.isDisplayed());
-        Assert.assertTrue("The found", this.results.getText().contains(text));
+        assertTrue("The found", this.results.isDisplayed());
+        assertTrue("The found", this.results.getText().contains(text));
     }
 
 }

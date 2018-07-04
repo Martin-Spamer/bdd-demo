@@ -12,6 +12,7 @@ import automation.webdriver.AbstractPageObject;
  */
 public class GoogleSearchPage extends AbstractPageObject {
 
+    /** The search box. */
     @FindBy(name = "q")
     private WebElement searchBox;
 
@@ -32,6 +33,11 @@ public class GoogleSearchPage extends AbstractPageObject {
         super(webDriver);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see automation.webdriver.AbstractPageObject#pageUrl()
+     */
     @Override
     protected String pageUrl() {
         return null;

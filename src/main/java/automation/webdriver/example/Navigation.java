@@ -51,6 +51,11 @@ public abstract class Navigation extends AbstractPageObject {
         super(webDriver);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see automation.webdriver.AbstractPageObject#verify()
+     */
     @Override
     public AbstractPageObject verify() {
         PageFactory.initElements(this.webDriver, this);

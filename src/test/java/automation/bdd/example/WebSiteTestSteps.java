@@ -12,16 +12,16 @@ import cucumber.api.java.en.When;
  */
 public class WebSiteTestSteps {
 
-    /** The site. */
-    ExampleWebSite exampleSite = new ExampleWebSite();
+    /** A simple example business web site. */
+    ExampleWebSite site = new ExampleWebSite();
 
     /**
      * The home page.
      *
      */
-    @Given("^the website landing page$")
+    @Given("^the web site landing page$")
     public void exampleHomePage() {
-        this.exampleSite.open();
+        this.site.open();
     }
 
     /**
@@ -32,7 +32,7 @@ public class WebSiteTestSteps {
      */
     @Given("^the page \"(.*?)\"$")
     public void theHomePage(final String siteUrl) {
-        this.exampleSite.open(siteUrl);
+        this.site.open(siteUrl);
     }
 
     /**
@@ -41,7 +41,7 @@ public class WebSiteTestSteps {
      */
     @When("^the landing page is loaded$")
     public void thePageIsLoaded() {
-        this.exampleSite.thePageIsLoaded();
+        this.site.thePageIsLoaded();
     }
 
     /**
@@ -52,7 +52,7 @@ public class WebSiteTestSteps {
      */
     @When("^the page contains \"(.*?)\"$")
     public void thePageContains(final String text) {
-        this.exampleSite.theHomePageContains(text);
+        this.site.theHomePageContains(text);
     }
 
     /**
@@ -60,7 +60,7 @@ public class WebSiteTestSteps {
      */
     @When("^the page has a valid navigation bar$")
     public void homePageIsValid() {
-        this.exampleSite.homePageIsValid();
+        this.site.homePageIsValid();
     }
 
     /**
@@ -70,7 +70,7 @@ public class WebSiteTestSteps {
      */
     @When("^we click \"(.*?)\"$")
     public void weClick(final String text) {
-        this.exampleSite.click(text);
+        this.site.click(text);
     }
 
     /**
@@ -78,7 +78,7 @@ public class WebSiteTestSteps {
      */
     @Then("^the About Us page is loaded\\.$")
     public void theAboutUsPageIsLoaded() {
-        this.exampleSite.theAboutUsPageIsLoaded();
+        this.site.theAboutUsPageIsLoaded();
     }
 
     /**
@@ -86,7 +86,7 @@ public class WebSiteTestSteps {
      */
     @Then("^the page is closed$")
     public void thePageIsClosed() {
-        this.exampleSite.closeBrowser();
+        this.site.closeBrowser();
     }
 
     /**
@@ -94,7 +94,7 @@ public class WebSiteTestSteps {
      */
     @After
     private void after() {
-        this.exampleSite.closeBrowser();
+        this.site.closeBrowser();
     }
 
 }

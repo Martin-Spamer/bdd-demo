@@ -14,8 +14,9 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         snippets = SnippetType.CAMELCASE,
-        glue = "automation",
+        glue = "automation.bdd",
         features = "classpath:./features/WebSite.feature",
-        monochrome = true)
+        monochrome = true,
+        tags = { "~@Ignore" })
 public class WebSiteTestRunner extends AbstractTestRunner {
 }

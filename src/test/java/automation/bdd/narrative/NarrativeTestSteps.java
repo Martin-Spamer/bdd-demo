@@ -1,8 +1,12 @@
 
 package automation.bdd.narrative;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
+import static org.junit.Assume.assumeTrue;
+
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,17 +21,23 @@ public class NarrativeTestSteps {
      */
     @Given("^an initial context$")
     public void anInitialContext() {
-        // Write code here that turns the phrase above into concrete actions
-        Assert.assertTrue("Initial Context", true);
+        // The pre-condition is true, the test passes
+        assumeTrue("Initial Context", true);
+    }
+
+    @Given("an initial context is false")
+    public void anInitialContextIsFalse() {
+        // The pre-condition is false, the test passes
+        assumeTrue("Initial Context", false);
     }
 
     /**
      * An event occurs.
      */
-    @When("^an event occurs$")
+    @When("^[an|the] event occurs$")
     public void anEventOccurs() {
         // Write code here that turns the phrase above into concrete actions
-        Assert.assertTrue("the event occurs", true);
+        assertTrue("the event occurs", true);
     }
 
     /**
@@ -35,8 +45,8 @@ public class NarrativeTestSteps {
      */
     @Then("^expected outcome is confirmed$")
     public void expectedOutcomeIsConfirmed() {
-        // Write code here that turns the phrase above into concrete actions
-        Assert.assertTrue("expected outcome confirmed", true);
+        // The post-condition is true, the test passes
+        assertTrue("expected outcome confirmed", true);
     }
 
     /**
@@ -44,8 +54,8 @@ public class NarrativeTestSteps {
      */
     @Then("^expected outcome is not confirmed$")
     public void expectedOutcomeIsNotConfirmed() {
-        // Write code here that turns the phrase above into concrete actions
-        Assert.fail("expected outcome is not confirmed");
+        // The post-condition is false, the test fails
+        fail("expected outcome is not confirmed");
     }
 
     /**
@@ -56,6 +66,12 @@ public class NarrativeTestSteps {
     public void expectedOutcomeIsABug() {
         final String isNull = null;
         isNull.toString();
+    }
+
+    @Then("expected outcome is incomplete")
+    public void expectedOutcomeIsIncomplete() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
 }

@@ -1,11 +1,11 @@
 @WebSite
 Feature: Demonstrate Cucumber-jvm with WebDriver
-	As an Automation Test Consultant
-	I want to demonstrate Cucumber-jvm feature files that use Selenium WebDriver Page Object Model 
-	So that others can quickly gain an understanding
+	As an advocate of Behaviour Driven Development
+	I want to demonstrate Cucumber feature files that with Selenium WebDriver
+	So that I can show automated web site testing with behaviour driven development
 
 Scenario: Navigate to home page - Imperative 
-	Given the website landing page
+	Given the web site landing page
 	When the landing page is loaded
 	And the page contains "About Us" 
 	And the page contains "Industries"
@@ -15,7 +15,7 @@ Scenario: Navigate to home page - Imperative
 	And the page is closed
 
 Scenario: Navigate to home page - Declarative
-	Given the website landing page
+	Given the web site landing page
 	When the landing page is loaded
 	Then the page has a valid navigation bar
 	And the page is closed

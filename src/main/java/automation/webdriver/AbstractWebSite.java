@@ -2,7 +2,6 @@
 package automation.webdriver;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,13 +17,31 @@ public abstract class AbstractWebSite {
     /** provides logging. */
     protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
-    /** The web driver. */
+    /** The webDriver. */
     protected WebDriver webDriver;
 
+    /**
+     * Default Constructor.
+     */
     public AbstractWebSite() {
-        this.webDriver = new ChromeDriver();
+        this.webDriver = WebDriverFactory.defaultWebDriver();
     }
 
+    /**
+     * Constructor using site url.
+     *
+     * @param siteUrl the site url
+     */
+    public AbstractWebSite(final String siteUrl) {
+        this.webDriver = WebDriverFactory.defaultWebDriver();
+        open(siteUrl);
+    }
+
+    /**
+     * Constructor using webDriver instance.
+     *
+     * @param webDriver the web driver
+     */
     public AbstractWebSite(final WebDriver webDriver) {
         assertNotNull(webDriver);
         this.webDriver = webDriver;
@@ -45,14 +62,22 @@ public abstract class AbstractWebSite {
     }
 
     /**
-     * close browser and therefore site.
+     * close the page.
      */
-    public void closeSite() {
+    public void close() {
         if (this.webDriver != null) {
-            // this.webDriver.close(); // use to close single window
-            this.webDriver.quit(); // use to close entire browser
+            this.webDriver.close();
             this.webDriver = null;
         }
     }
 
+    /**
+     * Quit the browser.
+     */
+    public void quit() {
+        if (this.webDriver != null) {
+            this.webDriver.quit();
+            this.webDriver = null;
+        }
+    }
 }
