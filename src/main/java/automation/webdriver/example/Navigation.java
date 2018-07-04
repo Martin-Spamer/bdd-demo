@@ -51,6 +51,11 @@ public abstract class Navigation extends AbstractPageObject {
         super(webDriver);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see automation.webdriver.AbstractPageObject#verify()
+     */
     @Override
     public AbstractPageObject verify() {
         PageFactory.initElements(this.webDriver, this);
@@ -68,11 +73,10 @@ public abstract class Navigation extends AbstractPageObject {
      * @param webElement the web element
      */
     protected void simulateSomeTestFoo(final WebElement webElement) {
-
         webElement.isDisplayed();
         webElement.isEnabled();
         webElement.isSelected();
-        System.out.println(webElement.toString());
+        this.log.info(webElement.toString());
     }
 
     /*

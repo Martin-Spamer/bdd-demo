@@ -14,9 +14,9 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         snippets = SnippetType.CAMELCASE,
-        glue = "automation",
+        glue = "automation.bdd",
         // features = "classpath:features",
-        features = "classpath:./features/GoogleSearch.feature",
+        features = "classpath:features/GoogleSearch.feature",
         monochrome = true)
 public class GoogleSearchTestRunner extends AbstractTestRunner {
 }

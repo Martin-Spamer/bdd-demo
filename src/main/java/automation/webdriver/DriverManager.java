@@ -3,29 +3,61 @@ package automation.webdriver;
 
 import org.openqa.selenium.WebDriver;
 
+/**
+ * DriverManager class.
+ */
 public abstract class DriverManager {
 
+    /** webDriver instance. */
     protected WebDriver driver;
 
-    protected abstract void startService();
-
-    protected abstract void stopService();
-
-    protected abstract void createDriver();
-
-    public void quitDriver() {
-        if (null != this.driver) {
-            this.driver.quit();
-            this.driver = null;
-        }
-
-    }
-
+    /**
+     * Gets the driver.
+     *
+     * @return the driver
+     */
     public WebDriver getDriver() {
         if (null == this.driver) {
             startService();
             createDriver();
         }
         return this.driver;
+    }
+
+    /**
+     * Start service.
+     */
+    protected abstract void startService();
+
+    /**
+     * Stop service.
+     */
+    protected abstract void stopService();
+
+    /**
+     * Creates the driver.
+     */
+    protected abstract void createDriver();
+
+    /**
+     * Close driver.
+     */
+    public void closeDriver() {
+        if (null != this.driver) {
+            this.driver.close();
+            this.driver = null;
+        }
+
+    }
+
+    /**
+     * Quit driver.
+     */
+    public void quitDriver() {
+        if (null != this.driver) {
+            this.driver.quit();
+            this.driver = null;
+        }
+
     }
 }

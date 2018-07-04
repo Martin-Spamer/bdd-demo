@@ -3,8 +3,11 @@ package automation.webdriver;
 
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import static org.junit.Assume.assumeTrue;
 
@@ -17,6 +20,9 @@ import automation.TestContext;
  */
 public class WebDriverFactoryTest {
 
+    private static final String TOMCAT_URL = "http://127.0.0.1:8080";
+    private static final Logger LOG = LoggerFactory.getLogger(WebDriverFactoryTest.class);
+
     /**
      * Unit test to edge driver.
      */
@@ -25,9 +31,12 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.EDGE.create();
         assertNotNull(webDriver);
-        webDriver.get("http://127.0.0.1:8080");
-        assertNotNull(webDriver.getTitle());
-        webDriver.close();
+        webDriver.get(TOMCAT_URL);
+        final String pageTitle = webDriver.getTitle();
+        assertNotNull(pageTitle);
+        assertTrue(pageTitle.contains("Apache Tomcat"));
+        LOG.info("pageTitle = {}", pageTitle);
+        webDriver.quit();
     }
 
     /**
@@ -38,9 +47,12 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.CHROME.create();
         assertNotNull(webDriver);
-        webDriver.get("http://127.0.0.1:8080");
-        assertNotNull(webDriver.getTitle());
-        webDriver.close();
+        webDriver.get(TOMCAT_URL);
+        final String pageTitle = webDriver.getTitle();
+        assertNotNull(pageTitle);
+        assertTrue(pageTitle.contains("Apache Tomcat"));
+        LOG.info("pageTitle = {}", pageTitle);
+        webDriver.quit();
     }
 
     /**
@@ -51,9 +63,12 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.FIREFOX.create();
         assertNotNull(webDriver);
-        webDriver.get("http://127.0.0.1:8080");
-        assertNotNull(webDriver.getTitle());
-        webDriver.close();
+        webDriver.get(TOMCAT_URL);
+        final String pageTitle = webDriver.getTitle();
+        assertNotNull(pageTitle);
+        assertTrue(pageTitle.contains("Apache Tomcat"));
+        LOG.info("pageTitle = {}", pageTitle);
+        webDriver.quit();
     }
 
 }

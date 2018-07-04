@@ -1,10 +1,10 @@
-@GoogleSearch
-Feature: Demonstrate BDD with Cucumber-jvm and WebDriver
-	As an Behaviour Driven Development Advocate
+@Search
+Feature: Show BDD with Cucumber and WebDriver
+	As an advocate of Behaviour Driven Development
 	I want to show BDD used for Web Site testing 
-	So that others might consider using BDD
+	So that I can show automated testing with behaviour driven development
 
-Scenario: Search for Hull Digital website 
-	Given the Google Search Page
-	When we search for Hull Digital
-	Then we see Hull Digital appears in the results
+Scenario: Search for the Hull Digital web site
+	Given a Search Page
+	When we search for 'Hull Digital'
+	Then we see 'Hull Digital' appears in the results

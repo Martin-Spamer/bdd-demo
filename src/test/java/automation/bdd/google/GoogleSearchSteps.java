@@ -1,8 +1,9 @@
 
 package automation.bdd.google;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 
+import automation.webdriver.WebDriverFactory;
 import automation.webdriver.google.GoogleSearchSite;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,21 +17,9 @@ public class GoogleSearchSteps {
     /** The google site. */
     private GoogleSearchSite googleSite;
 
-    /**
-     * The home page.
-     */
-    @Given("the Google Search Page$")
+    @Given("a Search Page$")
     public void exampleHomePage() {
         this.googleSite = new GoogleSearchSite();
-        this.googleSite.open();
-    }
-
-    /**
-     * The google search page is loaded in firefox.
-     */
-    @Given("^the Google Search Page is loaded in Firefox$")
-    public void theGoogleSearchPageIsLoadedInFirefox() {
-        this.googleSite = new GoogleSearchSite(new FirefoxDriver());
         this.googleSite.open();
     }
 
@@ -40,18 +29,11 @@ public class GoogleSearchSteps {
      * @param browserName
      *            the browser name
      */
-    @Given("^the Google Search Page is loaded in \"(.*?)\"$")
-    public void theGoogleSearchPageIsLoadedIn(final String browserName) {
-        this.googleSite = new GoogleSearchSite(new FirefoxDriver());
+    @Given("^the Search Page is loaded in \"(.*?)\"$")
+    public void theGoogleSearchPageIsLoadedIn(final String candidateWebDriverType) {
+        final WebDriver webDriver = WebDriverFactory.fromString(candidateWebDriverType).webDriver();
+        this.googleSite = new GoogleSearchSite(webDriver);
         this.googleSite.open();
-    }
-
-    /**
-     * We search for the test people.
-     */
-    @When("^we search for Hull Digital$")
-    public void weSearchForexample() {
-        this.googleSite.query("Hull Digital");
     }
 
     /**
@@ -71,16 +53,11 @@ public class GoogleSearchSteps {
      * @param queryText
      *            the query text
      */
-    @Then("We see {string} appears in the search results")
+    @Then("we see {string} appears in the results")
     public void appearsInExpectedResults(final String queryText) {
         this.googleSite.verify(queryText);
-        // in a real test suite we would close the browser!
-    }
-
-    @Then("we see Hull Digital appears in the search results")
-    public void hullDigitalAppearsInResults() {
-        this.googleSite.verify("Hull Digital");        
-        // in a real world test suite we would close the browser!
+        // In a real world test, the suite would close the browser!
         // leaving it open so audience can see the results.
+        // this.googleSite.quit();
     }
 }

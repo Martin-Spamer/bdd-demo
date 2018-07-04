@@ -14,8 +14,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         snippets = SnippetType.CAMELCASE,
-        glue = "automation",
-        features = "classpath:features",
+        glue = "automation.bdd",
+        features = "classpath:features/Narrative.feature",
         monochrome = true)
 public class NarrativeTestRunner extends AbstractTestRunner {
 }

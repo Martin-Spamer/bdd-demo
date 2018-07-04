@@ -17,21 +17,21 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         snippets = SnippetType.CAMELCASE,
-        glue = "automation",
+        glue = "automation.bdd",
         features = "classpath:features",
-        monochrome = true)
+        monochrome = true,
+        tags = { "not @Ignore" })
 public class TestRunner extends AbstractTestRunner {
 
     /**
      * Executed before each test case.
-     *
      */
     @Before
     private void before() {
-        this.log.trace("@Before");
+        this.log.info("@Before");
         final String useBrowser = System.getProperty("useBrowser");
         assumeNotNull(
-                "Expected the target browser to be specified in a Java System property (use -DuseBrowser={Chrome|Firefox|IE|Phantomjs})",
+                "Expected the target browser to be specified in a Java System property (use -DuseBrowser={Chrome|Edge|Firefox|IE|PhantomJs})",
                 useBrowser);
     }
 
@@ -40,7 +40,7 @@ public class TestRunner extends AbstractTestRunner {
      */
     @After
     private void after() {
-        this.log.trace("@After");
+        this.log.info("@After");
     }
 
 }
