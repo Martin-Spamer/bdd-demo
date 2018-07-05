@@ -25,6 +25,9 @@ public class NarrativeTestSteps {
         assumeTrue("Initial Context", true);
     }
 
+    /**
+     * An initial context is false.
+     */
     @Given("an initial context is false")
     public void anInitialContextIsFalse() {
         // The pre-condition is false, the test passes
@@ -68,6 +71,9 @@ public class NarrativeTestSteps {
         isNull.toString();
     }
 
+    /**
+     * Expected outcome is incomplete.
+     */
     @Then("expected outcome is incomplete")
     public void expectedOutcomeIsIncomplete() {
         // Write code here that turns the phrase above into concrete actions

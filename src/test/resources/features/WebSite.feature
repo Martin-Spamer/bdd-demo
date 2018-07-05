@@ -1,5 +1,5 @@
 @WebSite
-Feature: Demonstrate Cucumber-jvm with WebDriver
+Feature: Demonstrate Cucumber with Selenium WebDriver
 	As an advocate of Behaviour Driven Development
 	I want to demonstrate Cucumber feature files that with Selenium WebDriver
 	So that I can show automated web site testing with behaviour driven development
@@ -7,11 +7,11 @@ Feature: Demonstrate Cucumber-jvm with WebDriver
 Scenario: Navigate to home page - Imperative 
 	Given the web site landing page
 	When the landing page is loaded
-	And the page contains "About Us" 
-	And the page contains "Industries"
-	And the page contains "Services"
-	And the page contains "Our Clients"
-	And the page contains "Contact Us"
+	And the page contains 'About Us' link 
+	And the page contains 'Industries' link
+	And the page contains 'Services' link
+	And the page contains 'Our Clients' link
+	And the page contains 'Contact Us' link
 	And the page is closed
 
 Scenario: Navigate to home page - Declarative

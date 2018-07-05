@@ -16,6 +16,10 @@ public class AbstractPageObjectTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(AbstractPageObjectTest.class);
 
+    @PageUrl("http://127.0.0.1:8080")
+    public class TestPageUrl extends AbstractPageObject {
+    }
+
     /**
      * A Mock Page Object class.
      */
@@ -26,10 +30,6 @@ public class AbstractPageObjectTest {
         }
     }
 
-    // TODO:
-    // @PageUrl("http://127.0.0.1:8080")
-    // public class TestPage extends AbstractPageObject {
-    // }
     public class SitePage extends AbstractPageObject {
         public class PageHeader extends AbstractPageObject {
             public PageHeader(final WebDriver webDriver) {
@@ -79,7 +79,7 @@ public class AbstractPageObjectTest {
         assertNotNull(aPage);
         assertEquals(aPage, aPage.open());
         assertEquals(aPage, aPage.verify());
-        LOG.info("{}", aPage.toString());
+        LOG.info(aPage.toString());
         aPage.quit();
     }
 
@@ -89,7 +89,7 @@ public class AbstractPageObjectTest {
         assertNotNull(sitePage);
         assertEquals(sitePage, sitePage.open());
         assertEquals(sitePage, sitePage.verify());
-        LOG.info("{}", sitePage.toString());
+        LOG.info(sitePage.toString());
         sitePage.quit();
     }
 

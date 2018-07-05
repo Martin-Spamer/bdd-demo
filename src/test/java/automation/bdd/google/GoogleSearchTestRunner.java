@@ -13,10 +13,10 @@ import cucumber.api.junit.Cucumber;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        snippets = SnippetType.CAMELCASE,
+        tags = { "not @Ignore" },
         glue = "automation.bdd",
-        // features = "classpath:features",
         features = "classpath:features/GoogleSearch.feature",
-        monochrome = true)
+        monochrome = true,
+        snippets = SnippetType.CAMELCASE)
 public class GoogleSearchTestRunner extends AbstractTestRunner {
 }

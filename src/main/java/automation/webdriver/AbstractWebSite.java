@@ -24,17 +24,7 @@ public abstract class AbstractWebSite {
      * Default Constructor.
      */
     public AbstractWebSite() {
-        this.webDriver = WebDriverFactory.defaultWebDriver();
-    }
-
-    /**
-     * Constructor using site url.
-     *
-     * @param siteUrl the site url
-     */
-    public AbstractWebSite(final String siteUrl) {
-        this.webDriver = WebDriverFactory.defaultWebDriver();
-        open(siteUrl);
+        this(WebDriverFactory.defaultWebDriver());
     }
 
     /**
@@ -45,6 +35,16 @@ public abstract class AbstractWebSite {
     public AbstractWebSite(final WebDriver webDriver) {
         assertNotNull(webDriver);
         this.webDriver = webDriver;
+    }
+
+    /**
+     * Constructor using site url.
+     *
+     * @param siteUrl the site url
+     */
+    public AbstractWebSite(final String siteUrl) {
+        this(WebDriverFactory.defaultWebDriver());
+        open(siteUrl);
     }
 
     /**

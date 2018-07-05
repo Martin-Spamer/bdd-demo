@@ -156,6 +156,7 @@ public enum WebDriverFactory {
      * @return the webDriver
      */
     public static WebDriver remoteWebDriver(final String targetBrowser) {
+        log.info("targetBrowser = {}", targetBrowser);
         final DesiredCapabilities desiredCapabilities;
 
         switch (targetBrowser.toLowerCase()) {
@@ -178,11 +179,12 @@ public enum WebDriverFactory {
 
         URL gridUrl;
         try {
-            gridUrl = new URL("http://localhost:4444");
+            gridUrl = new URL(TestContext.gridUrl());
             return new RemoteWebDriver(gridUrl, desiredCapabilities);
         } catch (final MalformedURLException e) {
             log.error(e.toString());
         }
         return null;
     }
+
 }

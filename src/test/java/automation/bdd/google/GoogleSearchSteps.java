@@ -17,6 +17,9 @@ public class GoogleSearchSteps {
     /** The google site. */
     private GoogleSearchSite googleSite;
 
+    /**
+     * Example home page.
+     */
     @Given("a Search Page$")
     public void exampleHomePage() {
         this.googleSite = new GoogleSearchSite();
@@ -26,8 +29,7 @@ public class GoogleSearchSteps {
     /**
      * The google search page is loaded in parameterised browser.
      *
-     * @param browserName
-     *            the browser name
+     * @param candidateWebDriverType the candidate web driver type
      */
     @Given("^the Search Page is loaded in \"(.*?)\"$")
     public void theGoogleSearchPageIsLoadedIn(final String candidateWebDriverType) {
@@ -56,8 +58,7 @@ public class GoogleSearchSteps {
     @Then("we see {string} appears in the results")
     public void appearsInExpectedResults(final String queryText) {
         this.googleSite.verify(queryText);
-        // In a real world test, the suite would close the browser!
-        // leaving it open so audience can see the results.
-        // this.googleSite.quit();
+        this.googleSite.quit();
     }
+
 }

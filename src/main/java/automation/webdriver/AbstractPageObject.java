@@ -4,7 +4,6 @@ package automation.webdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -33,9 +32,7 @@ public abstract class AbstractPageObject {
      * Instantiates a new page object.
      */
     public AbstractPageObject() {
-        this.webDriver = new ChromeDriver();
-        PageFactory.initElements(this.webDriver, this);
-        configureTimeOut();
+        this(WebDriverFactory.defaultWebDriver());
     }
 
     /**
@@ -47,7 +44,6 @@ public abstract class AbstractPageObject {
     public AbstractPageObject(final WebDriver webDriver) {
         super();
         this.webDriver = webDriver;
-        PageFactory.initElements(this.webDriver, this);
         configureTimeOut();
     }
 

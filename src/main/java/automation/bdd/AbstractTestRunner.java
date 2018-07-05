@@ -1,7 +1,8 @@
 
 package automation.bdd;
 
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,19 +20,25 @@ import static org.junit.Assume.assumeNotNull;
  */
 public abstract class AbstractTestRunner {
 
-    /** provides logging. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    protected static final Logger LOG = LoggerFactory.getLogger(AbstractTestRunner.class);
 
     /**
-     * Before test, an excellent place to :
-     * test any assumptions common to the entire test suite
-     * such as any required environmental configurations.
+     * Before test, an excellent place to test any assumptions common to the
+     * entire test suite such as any required environmental configurations or
+     * data setup.
      */
-    @BeforeClass
-    public static void beforeTests() {
-        final String targetEnvironment = System.getProperty("targetEnvironment","local");
+    @Before
+    public void beforeTests() {
+        LOG.info("beforeTests - Executed before all tests in test suite.  Ideal place for data setup.");
+        final String targetEnvironment = System.getProperty("targetEnvironment", "local");
         assumeNotNull(
                 "Expected the target environment to be specified in a Java System property (use -DtargetEnvironment={DEV|SIT|...})",
                 targetEnvironment);
     }
+
+    @After
+    public void afterTests() {
+        LOG.info("afterTests - Executed after all tests in test suite.  Ideal place for data cleanup.");
+    }
+
 }

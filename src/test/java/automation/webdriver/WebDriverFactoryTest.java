@@ -31,11 +31,7 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.EDGE.create();
         assertNotNull(webDriver);
-        webDriver.get(TOMCAT_URL);
-        final String pageTitle = webDriver.getTitle();
-        assertNotNull(pageTitle);
-        assertTrue(pageTitle.contains("Apache Tomcat"));
-        LOG.info("pageTitle = {}", pageTitle);
+        openTestPage(webDriver);
         webDriver.quit();
     }
 
@@ -47,11 +43,7 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.CHROME.create();
         assertNotNull(webDriver);
-        webDriver.get(TOMCAT_URL);
-        final String pageTitle = webDriver.getTitle();
-        assertNotNull(pageTitle);
-        assertTrue(pageTitle.contains("Apache Tomcat"));
-        LOG.info("pageTitle = {}", pageTitle);
+        openTestPage(webDriver);
         webDriver.quit();
     }
 
@@ -63,12 +55,16 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.FIREFOX.create();
         assertNotNull(webDriver);
+        openTestPage(webDriver);
+        webDriver.quit();
+    }
+
+    private void openTestPage(final WebDriver webDriver) {
         webDriver.get(TOMCAT_URL);
         final String pageTitle = webDriver.getTitle();
         assertNotNull(pageTitle);
         assertTrue(pageTitle.contains("Apache Tomcat"));
         LOG.info("pageTitle = {}", pageTitle);
-        webDriver.quit();
     }
 
 }
