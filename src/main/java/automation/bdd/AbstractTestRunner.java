@@ -15,8 +15,6 @@ import static org.junit.Assume.assumeNotNull;
  * must use 1.1.8+ of Cucumber-jvm other wise you will receive unexpected
  * DuplicateStepDefinitionException errors
  *
- * @author Martin Spamer
- *
  */
 public abstract class AbstractTestRunner {
 

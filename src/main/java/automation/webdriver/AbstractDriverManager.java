@@ -4,9 +4,9 @@ package automation.webdriver;
 import org.openqa.selenium.WebDriver;
 
 /**
- * DriverManager class.
+ * An abstract manager class for WebDriver instances.
  */
-public abstract class DriverManager {
+public abstract class AbstractDriverManager {
 
     /** webDriver instance. */
     protected WebDriver driver;
@@ -47,7 +47,6 @@ public abstract class DriverManager {
             this.driver.close();
             this.driver = null;
         }
-
     }
 
     /**
@@ -58,6 +57,5 @@ public abstract class DriverManager {
             this.driver.quit();
             this.driver = null;
         }
-
     }
 }

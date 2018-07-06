@@ -1,14 +1,14 @@
 
 package automation.bdd;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assume.assumeNotNull;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.junit.Cucumber;
 
 /**
@@ -31,7 +31,7 @@ import cucumber.api.junit.Cucumber;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = { "not @Ignore" },
+        tags = { "@Nothing" },
         features = "classpath:features",
         glue = "automation.bdd",
         snippets = SnippetType.CAMELCASE,

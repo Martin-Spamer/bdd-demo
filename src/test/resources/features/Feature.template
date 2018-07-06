@@ -1,4 +1,5 @@
-# Comment
+# Use comments sparingly, clear features and scenarios should be sufficient.
+# Cucumber Gherkin reference, see: https://docs.cucumber.io/gherkin/
 @Epic
 @StoryTag
 

@@ -18,4 +18,4 @@ Scenario: Navigate to home page - Declarative
 	Given the web site landing page
 	When the landing page is loaded
 	Then the page has a valid navigation bar
-	And the page is closed
+	And the browser is closed

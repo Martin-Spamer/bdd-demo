@@ -9,8 +9,6 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * An abstract class for a web-site that abstract a WebDriver instance.
- *
- * @author Martin Spamer
  */
 public abstract class AbstractWebSite {
 
@@ -19,6 +17,8 @@ public abstract class AbstractWebSite {
 
     /** The webDriver. */
     protected WebDriver webDriver;
+
+    protected AbstractPageObject page;
 
     /**
      * Default Constructor.
@@ -59,6 +59,22 @@ public abstract class AbstractWebSite {
         // Navigate to the right place
         this.webDriver.get(siteUrl);
         this.log.debug("siteUrl = {}", siteUrl);
+    }
+
+    /**
+     * The page is loaded.
+     */
+    public void thePageIsLoaded() {
+        this.page.isLoaded();
+    }
+
+    /**
+     * Click.
+     *
+     * @param text the text
+     */
+    public void click(final String text) {
+        this.page.click(text);
     }
 
     /**

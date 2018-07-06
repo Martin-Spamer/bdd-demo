@@ -20,7 +20,7 @@ public class GoogleSearchSteps {
     /**
      * Example home page.
      */
-    @Given("a Search Page$")
+    @Given("^[the|a] Search Page$")
     public void exampleHomePage() {
         this.googleSite = new GoogleSearchSite();
         this.googleSite.open();
@@ -31,7 +31,7 @@ public class GoogleSearchSteps {
      *
      * @param candidateWebDriverType the candidate web driver type
      */
-    @Given("^the Search Page is loaded in \"(.*?)\"$")
+    @Given("the Search Page is loaded in the {string} browser")
     public void theGoogleSearchPageIsLoadedIn(final String candidateWebDriverType) {
         final WebDriver webDriver = WebDriverFactory.fromString(candidateWebDriverType).webDriver();
         this.googleSite = new GoogleSearchSite(webDriver);

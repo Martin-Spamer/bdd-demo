@@ -15,8 +15,6 @@ import automation.TestContext;
 
 /**
  * Unit Test class for WebDriverFactory class.
- *
- * @author Martin Spamer
  */
 public class WebDriverFactoryTest {
 

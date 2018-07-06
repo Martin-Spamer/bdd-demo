@@ -3,7 +3,6 @@ package automation.bdd.example;
 
 import org.junit.runner.RunWith;
 
-import automation.bdd.AbstractTestRunner;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
@@ -18,5 +17,5 @@ import cucumber.api.junit.Cucumber;
         features = "classpath:./features/WebSite.feature",
         monochrome = true,
         snippets = SnippetType.CAMELCASE)
-public class WebSiteTestRunner extends AbstractTestRunner {
+public class WebSiteTestRunner {
 }

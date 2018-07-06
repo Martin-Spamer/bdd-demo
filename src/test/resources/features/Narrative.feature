@@ -11,22 +11,22 @@ Scenario: A test passes when the Acceptance Criteria are confirmed
 
 Scenario: A test fails when the Acceptance Criteria are not confirmed
 	Given an initial context
-	When an event occurs
+	When the event occurs
 	Then expected outcome is not confirmed
 
 Scenario: The test skips when the assumption is false.
 	Given an initial context is false
-	When an event occurs
+	When the event occurs
 	Then expected outcome is incomplete
 
 Scenario: Acceptance Criteria is incomplete
 	Given an initial context
-	When an event occurs
+	When the event occurs
 	#  The following shows an expected test failure. 
 	Then expected outcome is incomplete
 
 Scenario: Acceptance Criteria is bugged
 	Given an initial context
-	When an event occurs
+	When the event occurs
 	#  The following shows an expected test failure. 
 	Then expected outcome is a bug

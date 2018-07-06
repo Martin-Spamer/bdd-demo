@@ -14,8 +14,6 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * An abstract base class for Page Objects.
- *
- * @author Martin Spamer
  */
 public abstract class AbstractPageObject {
 
@@ -164,6 +162,7 @@ public abstract class AbstractPageObject {
     public void close() {
         assertNotNull(this.webDriver);
         this.webDriver.close();
+        this.webDriver = null;
     }
 
     /**
@@ -172,6 +171,7 @@ public abstract class AbstractPageObject {
     public void quit() {
         assertNotNull(this.webDriver);
         this.webDriver.quit();
+        this.webDriver = null;
     }
 
 }

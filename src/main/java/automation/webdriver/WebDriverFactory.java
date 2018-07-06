@@ -21,8 +21,6 @@ import automation.TestContext;
 
 /**
  * A class Factory for WebDriver instances, wrapped in an enum.
- *
- * @author Martin Spamer
  */
 public enum WebDriverFactory {
 
