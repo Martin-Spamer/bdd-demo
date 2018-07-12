@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class PageObjectTests {
 
-    /** The Constant LOG. */
+    /** Provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(PageObjectTests.class);
 
     /**

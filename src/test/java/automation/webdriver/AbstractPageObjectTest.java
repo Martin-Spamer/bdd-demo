@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class AbstractPageObjectTest {
 
-    /** The Constant LOG. */
+    /** Provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(AbstractPageObjectTest.class);
 
     /**

@@ -21,7 +21,7 @@ public class SystemPropertiesTest {
     @Test
     public void testSystemProperties() {
         final Properties properties = System.getProperties();
-        this.log.info("System.getProperties() = {}", prettyPrint(properties));
+        log.info("System.getProperties() = {}", prettyPrint(properties));
     }
 
     /**

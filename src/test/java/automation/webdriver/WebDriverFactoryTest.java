@@ -21,7 +21,7 @@ public class WebDriverFactoryTest {
     /** The Constant TOMCAT_URL. */
     private static final String TOMCAT_URL = "http://127.0.0.1:8080";
     
-    /** The Constant LOG. */
+    /** Provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(WebDriverFactoryTest.class);
 
     /**

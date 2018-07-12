@@ -18,7 +18,7 @@ import static org.junit.Assume.assumeNotNull;
  */
 public abstract class AbstractTestRunner {
 
-    /** The Constant LOG. */
+    /** Provides logging. */
     protected static final Logger LOG = LoggerFactory.getLogger(AbstractTestRunner.class);
 
     /**
