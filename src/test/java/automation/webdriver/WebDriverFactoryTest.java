@@ -18,7 +18,10 @@ import automation.TestContext;
  */
 public class WebDriverFactoryTest {
 
+    /** The Constant TOMCAT_URL. */
     private static final String TOMCAT_URL = "http://127.0.0.1:8080";
+    
+    /** The Constant LOG. */
     private static final Logger LOG = LoggerFactory.getLogger(WebDriverFactoryTest.class);
 
     /**
@@ -57,6 +60,11 @@ public class WebDriverFactoryTest {
         webDriver.quit();
     }
 
+    /**
+     * Open test page.
+     *
+     * @param webDriver the web driver
+     */
     private void openTestPage(final WebDriver webDriver) {
         webDriver.get(TOMCAT_URL);
         final String pageTitle = webDriver.getTitle();

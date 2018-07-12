@@ -12,7 +12,7 @@ import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 /**
- * The Narrative Test Runner for Cucumber Feature File
+ * The Narrative Test Runner for Cucumber Feature File.
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(

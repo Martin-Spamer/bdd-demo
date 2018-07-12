@@ -18,6 +18,7 @@ public abstract class AbstractWebSite {
     /** The webDriver. */
     protected WebDriver webDriver;
 
+    /** The page. */
     protected AbstractPageObject page;
 
     /**

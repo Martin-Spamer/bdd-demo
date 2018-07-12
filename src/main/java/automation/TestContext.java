@@ -24,6 +24,15 @@ public class TestContext {
     }
 
     /**
+     * Target platform.
+     *
+     * @return the string
+     */
+    public static String targetPlatform() {
+        return System.getProperty("targetPlatform", "dev");
+    }
+
+    /**
      * Target environment.
      *
      * @return the string

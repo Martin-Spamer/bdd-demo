@@ -12,6 +12,7 @@ import cucumber.api.java.en.When;
  */
 public class WebSiteTestSteps {
 
+    /** The site. */
     ExampleWebSite site = new ExampleWebSite();
 
     /**

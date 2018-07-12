@@ -1,10 +1,19 @@
 
 package automation.ddt;
 
+/**
+ * The Class ExpectedData.
+ */
 public class ExpectedData {
 
-    public Object forTag(final String string) {
-        return this;
+    /**
+     * For tag.
+     *
+     * @param string the string
+     * @return the string
+     */
+    public String forTag(final String string) {
+        return "The expected data";
     }
 
 }

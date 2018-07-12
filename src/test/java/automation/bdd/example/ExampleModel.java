@@ -9,6 +9,7 @@ import automation.webdriver.example.ExampleWebSite;
  */
 public final class ExampleModel extends AbstractSystemUnderTest {
 
+    /** The site. */
     ExampleWebSite site = new ExampleWebSite();
 
 }

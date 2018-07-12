@@ -15,23 +15,23 @@ public abstract class Navigation extends AbstractPageObject {
 
     /** link to the about us page. */
     @FindBy(xpath = "//a[contains(text(),'About Us')]")
-    protected WebElement aboutUs;
+    WebElement aboutUs;
 
     /** link to the industries page. */
     @FindBy(xpath = "//a[contains(text(),'Industries')]")
-    protected WebElement industries;
+    WebElement industries;
 
     /** link to the services page. */
     @FindBy(xpath = "//a[contains(text(),'Services')]")
-    protected WebElement services;
+    WebElement services;
 
     /** link to the our clients page. */
     @FindBy(xpath = "//a[contains(text(),'Clients')]")
-    protected WebElement clients;
+    WebElement clients;
 
     /** link to the contact us page. */
     @FindBy(xpath = "//a[contains(text(),'Contact Us')]")
-    protected WebElement contactUs;
+    WebElement contactUs;
 
     /**
      * Instantiates a new navigation.

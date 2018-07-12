@@ -18,6 +18,7 @@ import static org.junit.Assume.assumeNotNull;
  */
 public abstract class AbstractTestRunner {
 
+    /** The Constant LOG. */
     protected static final Logger LOG = LoggerFactory.getLogger(AbstractTestRunner.class);
 
     /**
@@ -34,6 +35,9 @@ public abstract class AbstractTestRunner {
                 targetEnvironment);
     }
 
+    /**
+     * After tests.
+     */
     @After
     public void afterTests() {
         LOG.info("afterTests - Executed after all tests in test suite.  Ideal place for data cleanup.");

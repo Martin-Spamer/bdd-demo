@@ -18,7 +18,7 @@ public class ExampleWebSite extends AbstractWebSite {
     /**
      * Open the web-site.
      *
-     * @return
+     * @return the abstract web site
      */
     public AbstractWebSite open() {
         this.page = new LandingPage(this.webDriver);
@@ -26,11 +26,22 @@ public class ExampleWebSite extends AbstractWebSite {
         return this;
     }
 
+    /**
+     * The page contains.
+     *
+     * @param text the text
+     * @return the abstract web site
+     */
     public AbstractWebSite thePageContains(final String text) {
         this.page.contains(text);
         return this;
     }
 
+    /**
+     * Verify.
+     *
+     * @return the abstract web site
+     */
     public AbstractWebSite verify() {
         this.page.verify();
         return this;
