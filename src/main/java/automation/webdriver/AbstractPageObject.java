@@ -4,7 +4,6 @@ package automation.webdriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -15,8 +14,6 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * An abstract base class for Page Objects.
- *
- * @author Martin Spamer
  */
 public abstract class AbstractPageObject {
 
@@ -33,9 +30,7 @@ public abstract class AbstractPageObject {
      * Instantiates a new page object.
      */
     public AbstractPageObject() {
-        this.webDriver = new ChromeDriver();
-        PageFactory.initElements(this.webDriver, this);
-        configureTimeOut();
+        this(WebDriverFactory.defaultWebDriver());
     }
 
     /**
@@ -47,7 +42,6 @@ public abstract class AbstractPageObject {
     public AbstractPageObject(final WebDriver webDriver) {
         super();
         this.webDriver = webDriver;
-        PageFactory.initElements(this.webDriver, this);
         configureTimeOut();
     }
 
@@ -168,6 +162,7 @@ public abstract class AbstractPageObject {
     public void close() {
         assertNotNull(this.webDriver);
         this.webDriver.close();
+        this.webDriver = null;
     }
 
     /**
@@ -176,6 +171,7 @@ public abstract class AbstractPageObject {
     public void quit() {
         assertNotNull(this.webDriver);
         this.webDriver.quit();
+        this.webDriver = null;
     }
 
 }

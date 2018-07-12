@@ -15,7 +15,7 @@ import automation.webdriver.AbstractPageObject;
 public class GoogleResultPage extends AbstractPageObject {
 
     /** The results. */
-    @FindBy(xpath = "//a[contains(.,'Example')]")
+    @FindBy(xpath = "//a[contains(.,'Hull Digital')]")
     private WebElement results;
 
     /**
@@ -37,7 +37,7 @@ public class GoogleResultPage extends AbstractPageObject {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override

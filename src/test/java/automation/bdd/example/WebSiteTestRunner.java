@@ -3,7 +3,6 @@ package automation.bdd.example;
 
 import org.junit.runner.RunWith;
 
-import automation.bdd.AbstractTestRunner;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
@@ -13,10 +12,10 @@ import cucumber.api.junit.Cucumber;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        snippets = SnippetType.CAMELCASE,
+        tags = { "not @Ignore" },
         glue = "automation.bdd",
         features = "classpath:./features/WebSite.feature",
         monochrome = true,
-        tags = { "~@Ignore" })
-public class WebSiteTestRunner extends AbstractTestRunner {
+        snippets = SnippetType.CAMELCASE)
+public class WebSiteTestRunner {
 }

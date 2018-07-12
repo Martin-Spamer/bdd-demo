@@ -15,12 +15,13 @@ import automation.TestContext;
 
 /**
  * Unit Test class for WebDriverFactory class.
- *
- * @author Martin Spamer
  */
 public class WebDriverFactoryTest {
 
+    /** The Constant TOMCAT_URL. */
     private static final String TOMCAT_URL = "http://127.0.0.1:8080";
+    
+    /** Provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(WebDriverFactoryTest.class);
 
     /**
@@ -31,11 +32,7 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.EDGE.create();
         assertNotNull(webDriver);
-        webDriver.get(TOMCAT_URL);
-        final String pageTitle = webDriver.getTitle();
-        assertNotNull(pageTitle);
-        assertTrue(pageTitle.contains("Apache Tomcat"));
-        LOG.info("pageTitle = {}", pageTitle);
+        openTestPage(webDriver);
         webDriver.quit();
     }
 
@@ -47,11 +44,7 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.CHROME.create();
         assertNotNull(webDriver);
-        webDriver.get(TOMCAT_URL);
-        final String pageTitle = webDriver.getTitle();
-        assertNotNull(pageTitle);
-        assertTrue(pageTitle.contains("Apache Tomcat"));
-        LOG.info("pageTitle = {}", pageTitle);
+        openTestPage(webDriver);
         webDriver.quit();
     }
 
@@ -63,12 +56,21 @@ public class WebDriverFactoryTest {
         assumeTrue(TestContext.isLocal());
         final WebDriver webDriver = WebDriverFactory.FIREFOX.create();
         assertNotNull(webDriver);
+        openTestPage(webDriver);
+        webDriver.quit();
+    }
+
+    /**
+     * Open test page.
+     *
+     * @param webDriver the web driver
+     */
+    private void openTestPage(final WebDriver webDriver) {
         webDriver.get(TOMCAT_URL);
         final String pageTitle = webDriver.getTitle();
         assertNotNull(pageTitle);
         assertTrue(pageTitle.contains("Apache Tomcat"));
         LOG.info("pageTitle = {}", pageTitle);
-        webDriver.quit();
     }
 
 }

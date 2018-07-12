@@ -12,26 +12,24 @@ import cucumber.api.java.en.When;
  */
 public class WebSiteTestSteps {
 
-    /** A simple example business web site. */
+    /** The site. */
     ExampleWebSite site = new ExampleWebSite();
 
     /**
-     * The home page.
-     *
+     * Open the WebSite Home page.
      */
-    @Given("^the web site landing page$")
-    public void exampleHomePage() {
+    @Given("the web site landing page")
+    public void landingPage() {
         this.site.open();
     }
 
     /**
-     * The home page.
+     * The page by URL.
      *
-     * @param siteUrl
-     *            the site url
+     * @param siteUrl the site url
      */
-    @Given("^the page \"(.*?)\"$")
-    public void theHomePage(final String siteUrl) {
+    @Given("the page {string} is opened")
+    public void thePageIsOpened(final String siteUrl) {
         this.site.open(siteUrl);
     }
 
@@ -39,28 +37,28 @@ public class WebSiteTestSteps {
      * The page is loaded.
      *
      */
-    @When("^the landing page is loaded$")
+    @When("the landing page is loaded")
     public void thePageIsLoaded() {
         this.site.thePageIsLoaded();
     }
 
     /**
-     * The page contains.
+     * The page contains {string} link.
      *
      * @param text
      *            the text
      */
-    @When("^the page contains \"(.*?)\"$")
+    @When("the page contains {string} link")
     public void thePageContains(final String text) {
-        this.site.theHomePageContains(text);
+        this.site.thePageContains(text);
     }
 
     /**
      * Home page is valid.
      */
-    @When("^the page has a valid navigation bar$")
-    public void homePageIsValid() {
-        this.site.homePageIsValid();
+    @When("the page has a valid navigation bar")
+    public void thePageIsValid() {
+        this.site.verify();
     }
 
     /**
@@ -68,25 +66,25 @@ public class WebSiteTestSteps {
      *
      * @param text the text
      */
-    @When("^we click \"(.*?)\"$")
+    @When("we click the {string} link")
     public void weClick(final String text) {
         this.site.click(text);
     }
 
     /**
-     * The about us page is loaded.
+     * The site is closed.
      */
-    @Then("^the About Us page is loaded\\.$")
-    public void theAboutUsPageIsLoaded() {
-        this.site.theAboutUsPageIsLoaded();
+    @Then("the page is closed")
+    public void thePageIsClosed() {
+        this.site.close();
     }
 
     /**
-     * The page is closed.
+     * The browser is closed.
      */
-    @Then("^the page is closed$")
-    public void thePageIsClosed() {
-        this.site.closeBrowser();
+    @Then("the browser is closed")
+    public void theBrowserIsClosed() {
+        this.site.quit();
     }
 
     /**
@@ -94,7 +92,7 @@ public class WebSiteTestSteps {
      */
     @After
     private void after() {
-        this.site.closeBrowser();
+        this.site.quit();
     }
 
 }

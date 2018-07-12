@@ -3,19 +3,19 @@ package automation.bdd.narrative;
 
 import org.junit.runner.RunWith;
 
-import automation.bdd.AbstractTestRunner;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 /**
- * The Narrative Test Runner for Cucumber Feature File
+ * The Narrative Test Runner for Cucumber Feature File.
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        snippets = SnippetType.CAMELCASE,
+        tags = { "not @Ignore" },
         glue = "automation.bdd",
         features = "classpath:features/Narrative.feature",
-        monochrome = true)
-public class NarrativeTestRunner extends AbstractTestRunner {
+        monochrome = true,
+        snippets = SnippetType.CAMELCASE)
+public class NarrativeTestRunner {
 }

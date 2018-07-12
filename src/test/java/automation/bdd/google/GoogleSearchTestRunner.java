@@ -3,7 +3,6 @@ package automation.bdd.google;
 
 import org.junit.runner.RunWith;
 
-import automation.bdd.AbstractTestRunner;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
@@ -13,10 +12,10 @@ import cucumber.api.junit.Cucumber;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        snippets = SnippetType.CAMELCASE,
+        tags = { "not @Ignore" },
         glue = "automation.bdd",
-        // features = "classpath:features",
         features = "classpath:features/GoogleSearch.feature",
-        monochrome = true)
-public class GoogleSearchTestRunner extends AbstractTestRunner {
+        monochrome = true,
+        snippets = SnippetType.CAMELCASE)
+public class GoogleSearchTestRunner {
 }

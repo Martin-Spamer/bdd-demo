@@ -21,8 +21,6 @@ import automation.TestContext;
 
 /**
  * A class Factory for WebDriver instances, wrapped in an enum.
- *
- * @author Martin Spamer
  */
 public enum WebDriverFactory {
 
@@ -75,14 +73,19 @@ public enum WebDriverFactory {
         }
     };
 
+    /** The Constant BIN_IE_DRIVER. */
     private static final String BIN_IE_DRIVER = "web-driver-bin/IEDriverServer.exe";
 
+    /** The Constant BIN_CHROME_DRIVER. */
     private static final String BIN_CHROME_DRIVER = "web-driver-bin/chromedriver.exe";
 
+    /** The Constant BIN_EDGE_DRIVER. */
     private static final String BIN_EDGE_DRIVER = "web-driver-bin/MicrosoftWebDriver.exe";
 
+    /** The Constant BIN_GECKO_DRIVER. */
     private static final String BIN_GECKO_DRIVER = "web-driver-bin/geckodriver.exe";
 
+    /** The Constant BIN_PHANTOMJS. */
     private static final String BIN_PHANTOMJS = "web-driver-bin/phantomjs.exe";
 
     /** provided logging. */
@@ -94,14 +97,17 @@ public enum WebDriverFactory {
     /**
      * Instantiates a new browser factory.
      *
-     * @param webDriverClassName
-     *            the webDriver Class Name for Browser
-     * @return
+     * @param webDriverType            the webDriver Class Name for Browser
      */
     private WebDriverFactory(final String webDriverType) {
         this.webDriverType = webDriverType;
     }
 
+    /**
+     * Creates the.
+     *
+     * @return the web driver
+     */
     public abstract WebDriver create();
 
     /**
@@ -156,6 +162,7 @@ public enum WebDriverFactory {
      * @return the webDriver
      */
     public static WebDriver remoteWebDriver(final String targetBrowser) {
+        log.info("targetBrowser = {}", targetBrowser);
         final DesiredCapabilities desiredCapabilities;
 
         switch (targetBrowser.toLowerCase()) {
@@ -178,11 +185,12 @@ public enum WebDriverFactory {
 
         URL gridUrl;
         try {
-            gridUrl = new URL("http://localhost:4444");
+            gridUrl = new URL(TestContext.gridUrl());
             return new RemoteWebDriver(gridUrl, desiredCapabilities);
         } catch (final MalformedURLException e) {
             log.error(e.toString());
         }
         return null;
     }
+
 }

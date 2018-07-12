@@ -4,7 +4,6 @@ package automation.webdriver.example;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import automation.webdriver.AbstractPageObject;
 
@@ -16,23 +15,23 @@ public abstract class Navigation extends AbstractPageObject {
 
     /** link to the about us page. */
     @FindBy(xpath = "//a[contains(text(),'About Us')]")
-    protected WebElement aboutUs;
+    WebElement aboutUs;
 
     /** link to the industries page. */
     @FindBy(xpath = "//a[contains(text(),'Industries')]")
-    protected WebElement industries;
+    WebElement industries;
 
     /** link to the services page. */
     @FindBy(xpath = "//a[contains(text(),'Services')]")
-    protected WebElement services;
+    WebElement services;
 
     /** link to the our clients page. */
     @FindBy(xpath = "//a[contains(text(),'Clients')]")
-    protected WebElement clients;
+    WebElement clients;
 
     /** link to the contact us page. */
     @FindBy(xpath = "//a[contains(text(),'Contact Us')]")
-    protected WebElement contactUs;
+    WebElement contactUs;
 
     /**
      * Instantiates a new navigation.
@@ -53,12 +52,12 @@ public abstract class Navigation extends AbstractPageObject {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see automation.webdriver.AbstractPageObject#verify()
      */
     @Override
     public AbstractPageObject verify() {
-        PageFactory.initElements(this.webDriver, this);
+        super.verify();
         verifyWebElement(this.aboutUs);
         verifyWebElement(this.industries);
         verifyWebElement(this.services);

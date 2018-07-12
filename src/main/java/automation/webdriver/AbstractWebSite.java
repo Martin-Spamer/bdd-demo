@@ -9,8 +9,6 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * An abstract class for a web-site that abstract a WebDriver instance.
- *
- * @author Martin Spamer
  */
 public abstract class AbstractWebSite {
 
@@ -20,21 +18,14 @@ public abstract class AbstractWebSite {
     /** The webDriver. */
     protected WebDriver webDriver;
 
+    /** The page. */
+    protected AbstractPageObject page;
+
     /**
      * Default Constructor.
      */
     public AbstractWebSite() {
-        this.webDriver = WebDriverFactory.defaultWebDriver();
-    }
-
-    /**
-     * Constructor using site url.
-     *
-     * @param siteUrl the site url
-     */
-    public AbstractWebSite(final String siteUrl) {
-        this.webDriver = WebDriverFactory.defaultWebDriver();
-        open(siteUrl);
+        this(WebDriverFactory.defaultWebDriver());
     }
 
     /**
@@ -45,6 +36,16 @@ public abstract class AbstractWebSite {
     public AbstractWebSite(final WebDriver webDriver) {
         assertNotNull(webDriver);
         this.webDriver = webDriver;
+    }
+
+    /**
+     * Constructor using site url.
+     *
+     * @param siteUrl the site url
+     */
+    public AbstractWebSite(final String siteUrl) {
+        this(WebDriverFactory.defaultWebDriver());
+        open(siteUrl);
     }
 
     /**
@@ -59,6 +60,22 @@ public abstract class AbstractWebSite {
         // Navigate to the right place
         this.webDriver.get(siteUrl);
         this.log.debug("siteUrl = {}", siteUrl);
+    }
+
+    /**
+     * The page is loaded.
+     */
+    public void thePageIsLoaded() {
+        this.page.isLoaded();
+    }
+
+    /**
+     * Click.
+     *
+     * @param text the text
+     */
+    public void click(final String text) {
+        this.page.click(text);
     }
 
     /**

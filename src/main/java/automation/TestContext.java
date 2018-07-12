@@ -7,6 +7,13 @@ package automation;
 public class TestContext {
 
     /**
+     * Private constructor to prevent instantiation.
+     */
+    private TestContext() {
+        super();
+    }
+
+    /**
      * Run WebDriver Headless.
      *
      * @return true, if headless
@@ -14,6 +21,24 @@ public class TestContext {
     public static boolean headless() {
         final String property = System.getProperty("headless", "TRUE");
         return Boolean.valueOf(property);
+    }
+
+    /**
+     * Target platform.
+     *
+     * @return the string
+     */
+    public static String targetPlatform() {
+        return System.getProperty("targetPlatform", "dev");
+    }
+
+    /**
+     * Target environment.
+     *
+     * @return the string
+     */
+    public static String targetEnvironment() {
+        return System.getProperty("targetEnvironment", "local");
     }
 
     /**
@@ -79,7 +104,7 @@ public class TestContext {
      *
      * @return the string
      */
-    public static String seleniumUrl() {
+    public static String gridUrl() {
         return System.getProperty("seleniumUrl", "http://127.0.0.1:4444");
     }
 
