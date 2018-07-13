@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Page Object for Landing Page.
  */
-public class LandingPage extends Navigation {
+public final class LandingPage extends Navigation {
 
     /**
      * Instantiates a new home page object.
@@ -29,7 +29,6 @@ public class LandingPage extends Navigation {
 
     /*
      * (non-Javadoc)
-     *
      * @see automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override
@@ -44,7 +43,7 @@ public class LandingPage extends Navigation {
      *            the text
      */
     public void thePageContains(final String text) {
-        final String pageSource = this.webDriver.getPageSource();
+        final String pageSource = webDriver.getPageSource();
         Assert.assertTrue(pageSource.contains(text));
     }
 
@@ -53,9 +52,10 @@ public class LandingPage extends Navigation {
      *
      * @param text is the text to be clicked
      */
+    @Override
     public void click(final String text) {
         final String xPath = String.format("//a[contains(text(),'%s')]", text);
-        final WebElement webElement = this.webDriver.findElement(By.xpath(xPath));
+        final WebElement webElement = webDriver.findElement(By.xpath(xPath));
         Assert.assertNotNull(webElement);
         webElement.click();
     }
@@ -64,35 +64,35 @@ public class LandingPage extends Navigation {
      * Navigate to about.
      */
     public void navigateToAbout() {
-        this.aboutUs.click();
+        aboutUs.click();
     }
 
     /**
      * Navigate to industies.
      */
     public void navigateToIndusties() {
-        this.industries.click();
+        industries.click();
     }
 
     /**
      * Navigate to services.
      */
     public void navigateToServices() {
-        this.services.click();
+        services.click();
     }
 
     /**
      * Navigate to our clients.
      */
     public void navigateToOurClients() {
-        this.clients.click();
+        clients.click();
     }
 
     /**
      * Navigate to contact us.
      */
     public void navigateToContactUs() {
-        this.contactUs.click();
+        contactUs.click();
     }
 
     /**

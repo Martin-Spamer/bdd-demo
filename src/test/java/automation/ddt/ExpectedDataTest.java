@@ -9,9 +9,19 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 /**
- * The Class ExpectedDataTest.
+ * Unit tests for the ExpectedData class.
  */
-public class ExpectedDataTest {
+public final class ExpectedDataTest {
+
+    /**
+     * Unit test to expected data.
+     */
+    @Test
+    public void testExpectedData() {
+        final ExpectedData expectedData = new ExpectedData();
+        assertNotNull(expectedData);
+        assertNotNull(expectedData.forTag("@Tag"));
+    }
 
     /**
      * Type.
@@ -28,16 +38,6 @@ public class ExpectedDataTest {
     public void instantiation() {
         final ExpectedData target = new ExpectedData();
         assertThat(target, notNullValue());
-    }
-
-    /**
-     * Unit test to expected data.
-     */
-    @Test
-    public void testExpectedData() {
-        final ExpectedData expectedData = new ExpectedData();
-        assertNotNull(expectedData);
-        expectedData.forTag("@Tag");
     }
 
 }

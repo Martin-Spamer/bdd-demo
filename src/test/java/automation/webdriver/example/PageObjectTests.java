@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Unit Test class for all page objects.
  */
-public class PageObjectTests {
+public final class PageObjectTests {
 
     /** Provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(PageObjectTests.class);

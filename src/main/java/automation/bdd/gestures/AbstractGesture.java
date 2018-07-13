@@ -2,7 +2,7 @@
 package automation.bdd.gestures;
 
 /**
- * The Class AbstractGesture.
+ * The AbstractGesture.
  */
 public abstract class AbstractGesture {
 

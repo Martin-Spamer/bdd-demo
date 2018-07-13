@@ -10,7 +10,7 @@ import cucumber.api.java.en.When;
 /**
  * The Narrative Test Steps.
  */
-public class AuthorisationTestSteps {
+public final class AuthorisationTestSteps {
 
     /**
      * An initial context.

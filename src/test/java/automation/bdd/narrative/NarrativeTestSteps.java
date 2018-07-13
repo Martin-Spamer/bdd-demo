@@ -14,7 +14,7 @@ import cucumber.api.java.en.When;
 /**
  * The Narrative Test Steps.
  */
-public class NarrativeTestSteps {
+public final class NarrativeTestSteps {
 
     /**
      * An initial context.

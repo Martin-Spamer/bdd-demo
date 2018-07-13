@@ -4,7 +4,7 @@ package automation;
 /**
  * TestContext class.
  */
-public class TestContext {
+public final class TestContext {
 
     /**
      * Private constructor to prevent instantiation.

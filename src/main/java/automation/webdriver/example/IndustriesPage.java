@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Page Object for IndustriesPage.
  */
-public class IndustriesPage extends Navigation {
+public final class IndustriesPage extends Navigation {
 
     /**
      * Instantiates a new industries page.
@@ -27,7 +27,6 @@ public class IndustriesPage extends Navigation {
 
     /*
      * (non-Javadoc)
-     *
      * @see automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override

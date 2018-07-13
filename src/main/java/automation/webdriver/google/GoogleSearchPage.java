@@ -10,7 +10,7 @@ import automation.webdriver.AbstractPageObject;
 /**
  * The GoogleSearchPage.
  */
-public class GoogleSearchPage extends AbstractPageObject {
+public final class GoogleSearchPage extends AbstractPageObject {
 
     /** The search box. */
     @FindBy(name = "q")
@@ -35,7 +35,6 @@ public class GoogleSearchPage extends AbstractPageObject {
 
     /*
      * (non-Javadoc)
-     * 
      * @see automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override
@@ -51,8 +50,8 @@ public class GoogleSearchPage extends AbstractPageObject {
      */
     public void query(final String text) {
         // We continue using the element just as before
-        this.searchBox.sendKeys(text);
-        this.searchBox.submit();
+        searchBox.sendKeys(text);
+        searchBox.submit();
     }
 
 }

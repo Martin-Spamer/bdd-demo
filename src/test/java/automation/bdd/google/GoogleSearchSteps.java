@@ -12,7 +12,7 @@ import cucumber.api.java.en.When;
 /**
  * The GoogleSearchSteps.
  */
-public class GoogleSearchSteps {
+public final class GoogleSearchSteps {
 
     /** The google site. */
     private GoogleSearchSite googleSite;
@@ -22,8 +22,8 @@ public class GoogleSearchSteps {
      */
     @Given("^[the|a] Search Page$")
     public void exampleHomePage() {
-        this.googleSite = new GoogleSearchSite();
-        this.googleSite.open();
+        googleSite = new GoogleSearchSite();
+        googleSite.open();
     }
 
     /**
@@ -34,8 +34,8 @@ public class GoogleSearchSteps {
     @Given("the Search Page is loaded in the {string} browser")
     public void theGoogleSearchPageIsLoadedIn(final String candidateWebDriverType) {
         final WebDriver webDriver = WebDriverFactory.fromString(candidateWebDriverType).webDriver();
-        this.googleSite = new GoogleSearchSite(webDriver);
-        this.googleSite.open();
+        googleSite = new GoogleSearchSite(webDriver);
+        googleSite.open();
     }
 
     /**
@@ -46,7 +46,7 @@ public class GoogleSearchSteps {
      */
     @When("we search for {string}")
     public void weSearchFor(final String queryText) {
-        this.googleSite.query(queryText);
+        googleSite.query(queryText);
     }
 
     /**
@@ -57,8 +57,8 @@ public class GoogleSearchSteps {
      */
     @Then("we see {string} appears in the results")
     public void appearsInExpectedResults(final String queryText) {
-        this.googleSite.verify(queryText);
-        this.googleSite.quit();
+        googleSite.verify(queryText);
+        googleSite.quit();
     }
 
 }

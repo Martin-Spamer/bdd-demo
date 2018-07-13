@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Page Object for Services page.
  */
-public class ServicesPage extends Navigation {
+public final class ServicesPage extends Navigation {
 
     /**
      * Instantiates a new services page.
@@ -27,7 +27,6 @@ public class ServicesPage extends Navigation {
 
     /*
      * (non-Javadoc)
-     *
      * @see automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override

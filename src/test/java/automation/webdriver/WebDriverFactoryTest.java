@@ -16,11 +16,11 @@ import automation.TestContext;
 /**
  * Unit Test class for WebDriverFactory class.
  */
-public class WebDriverFactoryTest {
+public final class WebDriverFactoryTest {
 
     /** The Constant TOMCAT_URL. */
     private static final String TOMCAT_URL = "http://127.0.0.1:8080";
-    
+
     /** Provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(WebDriverFactoryTest.class);
 

@@ -36,7 +36,7 @@ import cucumber.api.junit.Cucumber;
         glue = "automation.bdd",
         snippets = SnippetType.CAMELCASE,
         monochrome = true)
-public class TestRunnerTemplate extends AbstractTestRunner {
+public final class TestRunnerTemplate extends AbstractTestRunner {
 
     /**
      * Executed before each test case.

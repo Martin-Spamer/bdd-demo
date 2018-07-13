@@ -21,7 +21,7 @@ import cucumber.api.junit.Cucumber;
         features = "classpath:features",
         monochrome = true,
         snippets = SnippetType.CAMELCASE)
-public class TestRunner extends AbstractTestRunner {
+public final class TestRunner extends AbstractTestRunner {
 
     /**
      * Executed before each test case.

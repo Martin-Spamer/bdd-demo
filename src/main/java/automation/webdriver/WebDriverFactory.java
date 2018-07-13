@@ -97,7 +97,7 @@ public enum WebDriverFactory {
     /**
      * Instantiates a new browser factory.
      *
-     * @param webDriverType            the webDriver Class Name for Browser
+     * @param webDriverType the webDriver Class Name for Browser
      */
     private WebDriverFactory(final String webDriverType) {
         this.webDriverType = webDriverType;
@@ -188,7 +188,7 @@ public enum WebDriverFactory {
             gridUrl = new URL(TestContext.gridUrl());
             return new RemoteWebDriver(gridUrl, desiredCapabilities);
         } catch (final MalformedURLException e) {
-            log.error(e.toString());
+            log.error(e.toString(), e);
         }
         return null;
     }

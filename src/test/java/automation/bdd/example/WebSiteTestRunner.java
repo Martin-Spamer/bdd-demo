@@ -17,5 +17,5 @@ import cucumber.api.junit.Cucumber;
         features = "classpath:./features/WebSite.feature",
         monochrome = true,
         snippets = SnippetType.CAMELCASE)
-public class WebSiteTestRunner {
+public final class WebSiteTestRunner {
 }
