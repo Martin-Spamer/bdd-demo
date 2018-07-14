@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Page Object for About Page.
  */
-public class AboutPage extends Navigation {
+public final class AboutPage extends Navigation {
 
     /**
      * Instantiates a new about page.
@@ -27,7 +27,6 @@ public class AboutPage extends Navigation {
 
     /*
      * (non-Javadoc)
-     *
      * @see com.example.automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override

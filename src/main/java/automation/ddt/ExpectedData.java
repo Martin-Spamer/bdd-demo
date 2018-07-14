@@ -2,7 +2,7 @@
 package automation.ddt;
 
 /**
- * The Class ExpectedData.
+ * Provides the ExpectedData for automated tests.
  */
 public class ExpectedData {
 

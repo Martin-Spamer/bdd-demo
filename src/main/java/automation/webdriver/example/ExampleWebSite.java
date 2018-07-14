@@ -6,7 +6,7 @@ import automation.webdriver.AbstractWebSite;
 /**
  * An Example WebSite.
  */
-public class ExampleWebSite extends AbstractWebSite {
+public final class ExampleWebSite extends AbstractWebSite {
 
     /**
      * Instantiates a new google search site.
@@ -21,8 +21,8 @@ public class ExampleWebSite extends AbstractWebSite {
      * @return the abstract web site
      */
     public AbstractWebSite open() {
-        this.page = new LandingPage(this.webDriver);
-        this.page.open();
+        page = new LandingPage(webDriver);
+        page.open();
         return this;
     }
 
@@ -33,7 +33,7 @@ public class ExampleWebSite extends AbstractWebSite {
      * @return the abstract web site
      */
     public AbstractWebSite thePageContains(final String text) {
-        this.page.contains(text);
+        page.contains(text);
         return this;
     }
 
@@ -43,7 +43,7 @@ public class ExampleWebSite extends AbstractWebSite {
      * @return the abstract web site
      */
     public AbstractWebSite verify() {
-        this.page.verify();
+        page.verify();
         return this;
     }
 

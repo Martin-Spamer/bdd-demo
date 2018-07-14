@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Page Object for ContactUsPage.
  */
-public class ContactUsPage extends Navigation {
+public final class ContactUsPage extends Navigation {
 
     /**
      * Instantiates a new contact us page.
@@ -27,7 +27,6 @@ public class ContactUsPage extends Navigation {
 
     /*
      * (non-Javadoc)
-     *
      * @see com.example.automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override

@@ -8,12 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The Class SystemPropertiesTest.
+ * Unit tests for the SystemProperties class.
  */
-public class SystemPropertiesTest {
+public final class SystemPropertiesTest {
 
-    /** The log. */
-    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
+    /** Provides logging. */
+    private static final Logger LOG = LoggerFactory.getLogger(SystemPropertiesTest.class);
 
     /**
      * Expose system properties.
@@ -21,7 +21,7 @@ public class SystemPropertiesTest {
     @Test
     public void testSystemProperties() {
         final Properties properties = System.getProperties();
-        log.info("System.getProperties() = {}", prettyPrint(properties));
+        LOG.info("System.getProperties() = {}", prettyPrint(properties));
     }
 
     /**

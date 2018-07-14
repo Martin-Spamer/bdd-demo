@@ -12,7 +12,7 @@ import automation.webdriver.AbstractPageObject;
 /**
  * The GoogleResultPage.
  */
-public class GoogleResultPage extends AbstractPageObject {
+public final class GoogleResultPage extends AbstractPageObject {
 
     /** The results. */
     @FindBy(xpath = "//a[contains(.,'Hull Digital')]")
@@ -37,7 +37,6 @@ public class GoogleResultPage extends AbstractPageObject {
 
     /*
      * (non-Javadoc)
-     *
      * @see automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override
@@ -52,8 +51,8 @@ public class GoogleResultPage extends AbstractPageObject {
      *            the text
      */
     public void verify(final String text) {
-        assertTrue("The found", this.results.isDisplayed());
-        assertTrue("The found", this.results.getText().contains(text));
+        assertTrue("The found", results.isDisplayed());
+        assertTrue("The found", results.getText().contains(text));
     }
 
 }

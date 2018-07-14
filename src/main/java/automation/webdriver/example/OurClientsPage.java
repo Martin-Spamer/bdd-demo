@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 /**
  * Page Object for Our Clients Page.
  */
-public class OurClientsPage extends Navigation {
+public final class OurClientsPage extends Navigation {
 
     /**
      * Instantiates a new our clients page.
@@ -27,7 +27,6 @@ public class OurClientsPage extends Navigation {
 
     /*
      * (non-Javadoc)
-     *
      * @see automation.webdriver.AbstractPageObject#pageUrl()
      */
     @Override

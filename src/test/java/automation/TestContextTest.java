@@ -9,7 +9,7 @@ import static org.junit.Assume.assumeTrue;
 /**
  * Unit Test the TestContext.
  */
-public class TestContextTest {
+public final class TestContextTest {
 
     /**
      * Unit test to check if running in a local environment.

@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Unit Test class for the AbstractPageObject class.
  */
-public class AbstractPageObjectTest {
+public final class AbstractPageObjectTest {
 
     /** Provides logging. */
     private static final Logger LOG = LoggerFactory.getLogger(AbstractPageObjectTest.class);
@@ -28,8 +28,9 @@ public class AbstractPageObjectTest {
      * A Mock Page Object class.
      */
     public class LandingPage extends AbstractPageObject {
-        
-        /* (non-Javadoc)
+
+        /*
+         * (non-Javadoc)
          * @see automation.webdriver.AbstractPageObject#pageUrl()
          */
         @Override
@@ -42,12 +43,12 @@ public class AbstractPageObjectTest {
      * The Class SitePage.
      */
     public class SitePage extends AbstractPageObject {
-        
+
         /**
          * The Class PageHeader.
          */
         public class PageHeader extends AbstractPageObject {
-            
+
             /**
              * The Constructor.
              *
@@ -62,7 +63,7 @@ public class AbstractPageObjectTest {
          * The Class PageFooter.
          */
         public class PageFooter extends AbstractPageObject {
-            
+
             /**
              * The Constructor.
              *
@@ -75,7 +76,7 @@ public class AbstractPageObjectTest {
 
         /** The page header. */
         private final PageHeader pageHeader;
-        
+
         /** The page footer. */
         private final PageFooter pageFooter;
 
@@ -84,8 +85,8 @@ public class AbstractPageObjectTest {
          */
         public SitePage() {
             super();
-            this.pageHeader = new PageHeader(this.webDriver);
-            this.pageFooter = new PageFooter(this.webDriver);
+            pageHeader = new PageHeader(webDriver);
+            pageFooter = new PageFooter(webDriver);
         }
 
         /**
@@ -95,11 +96,12 @@ public class AbstractPageObjectTest {
          */
         public SitePage(final WebDriver webDriver) {
             super();
-            this.pageHeader = new PageHeader(webDriver);
-            this.pageFooter = new PageFooter(webDriver);
+            pageHeader = new PageHeader(webDriver);
+            pageFooter = new PageFooter(webDriver);
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
          * @see automation.webdriver.AbstractPageObject#pageUrl()
          */
         @Override
@@ -107,14 +109,15 @@ public class AbstractPageObjectTest {
             return "http://127.0.0.1:8080";
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
          * @see automation.webdriver.AbstractPageObject#verify()
          */
         @Override
         public AbstractPageObject verify() {
             super.verify();
-            this.pageHeader.verify();
-            this.pageFooter.verify();
+            pageHeader.verify();
+            pageFooter.verify();
             return this;
         }
 

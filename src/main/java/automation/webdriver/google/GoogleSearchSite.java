@@ -10,7 +10,7 @@ import automation.webdriver.AbstractWebSite;
 /**
  * The GoogleSearchSite class.
  */
-public class GoogleSearchSite extends AbstractWebSite {
+public final class GoogleSearchSite extends AbstractWebSite {
 
     /** The google search page. */
     private GoogleSearchPage googleSearchPage;
@@ -37,16 +37,16 @@ public class GoogleSearchSite extends AbstractWebSite {
      * Open.
      */
     public void open() {
-        Assert.assertNotNull(this.webDriver);
+        Assert.assertNotNull(webDriver);
 
         // Navigate to the right place
-        this.webDriver.get("http://www.google.com/");
+        webDriver.get("http://www.google.com/");
 
         // Create a new instance of the search page class
         // and initialise any WebElement fields in it.
-        this.googleSearchPage = PageFactory.initElements(this.webDriver, GoogleSearchPage.class);
+        googleSearchPage = PageFactory.initElements(webDriver, GoogleSearchPage.class);
 
-        Assert.assertNotNull(this.googleSearchPage);
+        Assert.assertNotNull(googleSearchPage);
     }
 
     /**
@@ -56,9 +56,9 @@ public class GoogleSearchSite extends AbstractWebSite {
      *            the text
      */
     public void verify(final String text) {
-        Assert.assertNotNull(this.webDriver);
+        Assert.assertNotNull(webDriver);
 
-        final GoogleResultPage googleResultPage = PageFactory.initElements(this.webDriver, GoogleResultPage.class);
+        final GoogleResultPage googleResultPage = PageFactory.initElements(webDriver, GoogleResultPage.class);
 
         googleResultPage.verify(text);
 
@@ -72,8 +72,8 @@ public class GoogleSearchSite extends AbstractWebSite {
      *            the text
      */
     public void query(final String text) {
-        Assert.assertNotNull(this.webDriver);
-        this.googleSearchPage.query(text);
+        Assert.assertNotNull(webDriver);
+        googleSearchPage.query(text);
     }
 
 }

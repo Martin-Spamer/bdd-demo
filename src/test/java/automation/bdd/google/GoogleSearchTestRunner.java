@@ -17,5 +17,5 @@ import cucumber.api.junit.Cucumber;
         features = "classpath:features/GoogleSearch.feature",
         monochrome = true,
         snippets = SnippetType.CAMELCASE)
-public class GoogleSearchTestRunner {
+public final class GoogleSearchTestRunner {
 }

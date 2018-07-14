@@ -2,7 +2,7 @@
 package automation.bdd.model;
 
 /**
- * The Class AbstractSystemUnderTest.
+ * The AbstractSystemUnderTest.
  */
 public abstract class AbstractSystemUnderTest {
 

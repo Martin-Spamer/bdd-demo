@@ -10,7 +10,7 @@ import cucumber.api.java.en.When;
 /**
  * The WebSiteTestSteps.
  */
-public class WebSiteTestSteps {
+public final class WebSiteTestSteps {
 
     /** The site. */
     ExampleWebSite site = new ExampleWebSite();
@@ -20,7 +20,7 @@ public class WebSiteTestSteps {
      */
     @Given("the web site landing page")
     public void landingPage() {
-        this.site.open();
+        site.open();
     }
 
     /**
@@ -30,7 +30,7 @@ public class WebSiteTestSteps {
      */
     @Given("the page {string} is opened")
     public void thePageIsOpened(final String siteUrl) {
-        this.site.open(siteUrl);
+        site.open(siteUrl);
     }
 
     /**
@@ -39,7 +39,7 @@ public class WebSiteTestSteps {
      */
     @When("the landing page is loaded")
     public void thePageIsLoaded() {
-        this.site.thePageIsLoaded();
+        site.thePageIsLoaded();
     }
 
     /**
@@ -50,7 +50,7 @@ public class WebSiteTestSteps {
      */
     @When("the page contains {string} link")
     public void thePageContains(final String text) {
-        this.site.thePageContains(text);
+        site.thePageContains(text);
     }
 
     /**
@@ -58,7 +58,7 @@ public class WebSiteTestSteps {
      */
     @When("the page has a valid navigation bar")
     public void thePageIsValid() {
-        this.site.verify();
+        site.verify();
     }
 
     /**
@@ -68,7 +68,7 @@ public class WebSiteTestSteps {
      */
     @When("we click the {string} link")
     public void weClick(final String text) {
-        this.site.click(text);
+        site.click(text);
     }
 
     /**
@@ -76,7 +76,7 @@ public class WebSiteTestSteps {
      */
     @Then("the page is closed")
     public void thePageIsClosed() {
-        this.site.close();
+        site.close();
     }
 
     /**
@@ -84,7 +84,7 @@ public class WebSiteTestSteps {
      */
     @Then("the browser is closed")
     public void theBrowserIsClosed() {
-        this.site.quit();
+        site.quit();
     }
 
     /**
@@ -92,7 +92,7 @@ public class WebSiteTestSteps {
      */
     @After
     private void after() {
-        this.site.quit();
+        site.quit();
     }
 
 }

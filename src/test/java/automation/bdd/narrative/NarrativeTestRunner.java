@@ -17,5 +17,5 @@ import cucumber.api.junit.Cucumber;
         features = "classpath:features/Narrative.feature",
         monochrome = true,
         snippets = SnippetType.CAMELCASE)
-public class NarrativeTestRunner {
+public final class NarrativeTestRunner {
 }
