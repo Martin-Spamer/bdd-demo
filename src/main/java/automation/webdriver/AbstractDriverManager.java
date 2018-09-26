@@ -17,11 +17,11 @@ public abstract class AbstractDriverManager {
      * @return the driver
      */
     public WebDriver getDriver() {
-        if (null == this.driver) {
+        if (null == driver) {
             startService();
             createDriver();
         }
-        return this.driver;
+        return driver;
     }
 
     /**
@@ -43,9 +43,9 @@ public abstract class AbstractDriverManager {
      * Close driver.
      */
     public void closeDriver() {
-        if (null != this.driver) {
-            this.driver.close();
-            this.driver = null;
+        if (null != driver) {
+            driver.close();
+            driver = null;
         }
     }
 
@@ -53,9 +53,9 @@ public abstract class AbstractDriverManager {
      * Quit driver.
      */
     public void quitDriver() {
-        if (null != this.driver) {
-            this.driver.quit();
-            this.driver = null;
+        if (null != driver) {
+            driver.quit();
+            driver = null;
         }
     }
 }

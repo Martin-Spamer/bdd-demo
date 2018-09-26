@@ -54,19 +54,19 @@ public abstract class AbstractWebSite {
      * @param siteUrl the site url
      */
     public void open(final String siteUrl) {
-        assertNotNull(this.webDriver);
-        this.log.debug("webDriver = {}", this.webDriver);
+        assertNotNull(webDriver);
+        log.debug("webDriver = {}", webDriver);
 
         // Navigate to the right place
-        this.webDriver.get(siteUrl);
-        this.log.debug("siteUrl = {}", siteUrl);
+        webDriver.get(siteUrl);
+        log.debug("siteUrl = {}", siteUrl);
     }
 
     /**
      * The page is loaded.
      */
     public void thePageIsLoaded() {
-        this.page.isLoaded();
+        page.isLoaded();
     }
 
     /**
@@ -75,16 +75,16 @@ public abstract class AbstractWebSite {
      * @param text the text
      */
     public void click(final String text) {
-        this.page.click(text);
+        page.click(text);
     }
 
     /**
      * close the page.
      */
     public void close() {
-        if (this.webDriver != null) {
-            this.webDriver.close();
-            this.webDriver = null;
+        if (webDriver != null) {
+            webDriver.close();
+            webDriver = null;
         }
     }
 
@@ -92,9 +92,9 @@ public abstract class AbstractWebSite {
      * Quit the browser.
      */
     public void quit() {
-        if (this.webDriver != null) {
-            this.webDriver.quit();
-            this.webDriver = null;
+        if (webDriver != null) {
+            webDriver.quit();
+            webDriver = null;
         }
     }
 }

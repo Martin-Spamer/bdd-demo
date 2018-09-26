@@ -18,14 +18,14 @@ public final class AbstractPageObjectTest {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractPageObjectTest.class);
 
     /**
-     * The Class TestPageUrl.
+     * A Mock Page object to test the PageUrl annotation.
      */
     @PageUrl("http://127.0.0.1:8080")
     public class TestPageUrl extends AbstractPageObject {
     }
 
     /**
-     * A Mock Page Object class.
+     * A Mock Page object to test overriding page URL.
      */
     public class LandingPage extends AbstractPageObject {
 
@@ -40,12 +40,12 @@ public final class AbstractPageObjectTest {
     }
 
     /**
-     * The Class SitePage.
+     * A Mock Page object to test a site landing page.
      */
     public class SitePage extends AbstractPageObject {
 
         /**
-         * The Class PageHeader.
+         * When all pages for a site include a PageHeader.
          */
         public class PageHeader extends AbstractPageObject {
 
@@ -60,7 +60,7 @@ public final class AbstractPageObjectTest {
         }
 
         /**
-         * The Class PageFooter.
+         * When all pages for a site include a PageFooter.
          */
         public class PageFooter extends AbstractPageObject {
 
@@ -81,12 +81,12 @@ public final class AbstractPageObjectTest {
         private final PageFooter pageFooter;
 
         /**
-         * The Constructor.
+         * Default Constructor for a site page.
          */
         public SitePage() {
             super();
-            pageHeader = new PageHeader(webDriver);
-            pageFooter = new PageFooter(webDriver);
+            this.pageHeader = new PageHeader(this.webDriver);
+            this.pageFooter = new PageFooter(this.webDriver);
         }
 
         /**
@@ -96,8 +96,8 @@ public final class AbstractPageObjectTest {
          */
         public SitePage(final WebDriver webDriver) {
             super();
-            pageHeader = new PageHeader(webDriver);
-            pageFooter = new PageFooter(webDriver);
+            this.pageHeader = new PageHeader(webDriver);
+            this.pageFooter = new PageFooter(webDriver);
         }
 
         /*
@@ -116,8 +116,8 @@ public final class AbstractPageObjectTest {
         @Override
         public AbstractPageObject verify() {
             super.verify();
-            pageHeader.verify();
-            pageFooter.verify();
+            this.pageHeader.verify();
+            this.pageFooter.verify();
             return this;
         }
 

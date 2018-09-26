@@ -51,7 +51,7 @@ public abstract class AbstractPageObject {
     private void configureTimeOut() {
         final int timeOutInSeconds = 1;
         final int retryInterval = 100;
-        this.webDriverWait = new WebDriverWait(this.webDriver, timeOutInSeconds, retryInterval);
+        webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds, retryInterval);
     }
 
     /**
@@ -80,10 +80,10 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     public AbstractPageObject open(final String pageUrl) {
-        assertNotNull("webDriver must be defined for PageObject", this.webDriver);
+        assertNotNull("webDriver must be defined for PageObject", webDriver);
         assertNotNull("pageUrl must be defined for PageObject", pageUrl);
-        this.webDriver.get(pageUrl);
-        PageFactory.initElements(this.webDriver, this);
+        webDriver.get(pageUrl);
+        PageFactory.initElements(webDriver, this);
         return this;
     }
 
@@ -91,8 +91,8 @@ public abstract class AbstractPageObject {
      * Checks if this page has loaded.
      */
     public void isLoaded() {
-        assertNotNull(this.webDriver.getCurrentUrl());
-        assertNotNull(this.webDriver.getTitle());
+        assertNotNull(webDriver.getCurrentUrl());
+        assertNotNull(webDriver.getTitle());
     }
 
     /**
@@ -102,7 +102,7 @@ public abstract class AbstractPageObject {
      * @see org.openqa.selenium.WebDriver#getCurrentUrl()
      */
     public String getCurrentUrl() {
-        return this.webDriver.getCurrentUrl();
+        return webDriver.getCurrentUrl();
     }
 
     /**
@@ -112,7 +112,7 @@ public abstract class AbstractPageObject {
      * @see org.openqa.selenium.WebDriver#getTitle()
      */
     public String getTitle() {
-        return this.webDriver.getTitle();
+        return webDriver.getTitle();
     }
 
     /**
@@ -121,7 +121,7 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     public AbstractPageObject verify() {
-        PageFactory.initElements(this.webDriver, this);
+        PageFactory.initElements(webDriver, this);
         return this;
     }
 
@@ -144,7 +144,7 @@ public abstract class AbstractPageObject {
      * @param text the text
      */
     public void click(final String text) {
-        this.webDriver.findElement(By.linkText(text));
+        webDriver.findElement(By.linkText(text));
     }
 
     /**
@@ -153,25 +153,26 @@ public abstract class AbstractPageObject {
      * @param text the text
      */
     public void contains(final String text) {
-        this.webDriver.getPageSource().contains(text);
+        assertNotNull(text);
+        assertTrue(webDriver.getPageSource().contains(text));
     }
 
     /**
      * Close the webDriver instance.
      */
     public void close() {
-        assertNotNull(this.webDriver);
-        this.webDriver.close();
-        this.webDriver = null;
+        assertNotNull(webDriver);
+        webDriver.close();
+        webDriver = null;
     }
 
     /**
      * Quit.
      */
     public void quit() {
-        assertNotNull(this.webDriver);
-        this.webDriver.quit();
-        this.webDriver = null;
+        assertNotNull(webDriver);
+        webDriver.quit();
+        webDriver = null;
     }
 
 }

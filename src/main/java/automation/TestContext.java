@@ -6,6 +6,9 @@ package automation;
  */
 public final class TestContext {
 
+    private static final String SELENIUM_GRID_URL = "http://localhost:4444";
+    private static final String TOMCAT_URL = "http://localhost:8080";
+
     /**
      * Private constructor to prevent instantiation.
      */
@@ -76,7 +79,7 @@ public final class TestContext {
      * @return the string
      */
     public static String tomcatUrl() {
-        return System.getProperty("tomcatUrl", "http://127.0.0.1:8080");
+        return System.getProperty("tomcatUrl", TOMCAT_URL);
     }
 
     /**
@@ -105,7 +108,7 @@ public final class TestContext {
      * @return the string
      */
     public static String gridUrl() {
-        return System.getProperty("seleniumUrl", "http://127.0.0.1:4444");
+        return System.getProperty("seleniumUrl", SELENIUM_GRID_URL);
     }
 
     /**

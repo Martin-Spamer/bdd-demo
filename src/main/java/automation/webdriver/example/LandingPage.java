@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
  */
 public final class LandingPage extends Navigation {
 
+    private static final String PAGE_URL = "http://127.0.0.1:8080/example/index.html";
+
     /**
      * Instantiates a new home page object.
      */
@@ -33,7 +35,7 @@ public final class LandingPage extends Navigation {
      */
     @Override
     protected String pageUrl() {
-        return "http://127.0.0.1:8080/example/index.html";
+        return PAGE_URL;
     }
 
     /**

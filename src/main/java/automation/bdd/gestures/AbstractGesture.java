@@ -4,6 +4,6 @@ package automation.bdd.gestures;
 /**
  * The AbstractGesture.
  */
-public abstract class AbstractGesture {
+public abstract class AbstractGesture implements GestureInterface {
 
 }

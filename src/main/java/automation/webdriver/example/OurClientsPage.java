@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
  */
 public final class OurClientsPage extends Navigation {
 
+    private static final String PAGE_URL = "http://127.0.0.1:8080/example/clients.html";
+
     /**
      * Instantiates a new our clients page.
      */
@@ -31,7 +33,7 @@ public final class OurClientsPage extends Navigation {
      */
     @Override
     protected String pageUrl() {
-        return "http://127.0.0.1:8080/example/clients.html";
+        return PAGE_URL;
     }
 
 }

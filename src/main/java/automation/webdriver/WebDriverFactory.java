@@ -89,7 +89,7 @@ public enum WebDriverFactory {
     private static final String BIN_PHANTOMJS = "web-driver-bin/phantomjs.exe";
 
     /** provided logging. */
-    protected final static Logger log = LoggerFactory.getLogger(WebDriverFactory.class);
+    protected static final Logger log = LoggerFactory.getLogger(WebDriverFactory.class);
 
     /** WebDriver name. */
     private String webDriverType;
@@ -142,6 +142,7 @@ public enum WebDriverFactory {
     public static WebDriver defaultWebDriver() {
         final String localBrowser = System.getProperty("localBrowser", "Chrome");
         final WebDriverFactory fromString = WebDriverFactory.fromString(localBrowser);
+        log.info("{}", fromString);
         return fromString.create();
     }
 
@@ -188,7 +189,7 @@ public enum WebDriverFactory {
             gridUrl = new URL(TestContext.gridUrl());
             return new RemoteWebDriver(gridUrl, desiredCapabilities);
         } catch (final MalformedURLException e) {
-            log.error(e.toString(), e);
+            log.error(e.getLocalizedMessage(), e);
         }
         return null;
     }

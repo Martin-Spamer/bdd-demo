@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.junit.Assert.assertTrue;
+
 import automation.webdriver.AbstractPageObject;
 
 /**
@@ -52,17 +54,16 @@ public abstract class Navigation extends AbstractPageObject {
 
     /*
      * (non-Javadoc)
-     *
      * @see automation.webdriver.AbstractPageObject#verify()
      */
     @Override
     public AbstractPageObject verify() {
         super.verify();
-        verifyWebElement(this.aboutUs);
-        verifyWebElement(this.industries);
-        verifyWebElement(this.services);
-        verifyWebElement(this.clients);
-        verifyWebElement(this.contactUs);
+        verifyWebElement(aboutUs);
+        verifyWebElement(industries);
+        verifyWebElement(services);
+        verifyWebElement(clients);
+        verifyWebElement(contactUs);
         return this;
     }
 
@@ -72,26 +73,25 @@ public abstract class Navigation extends AbstractPageObject {
      * @param webElement the web element
      */
     protected void simulateSomeTestFoo(final WebElement webElement) {
-        webElement.isDisplayed();
-        webElement.isEnabled();
-        webElement.isSelected();
-        this.log.info(webElement.toString());
+        log.info("{}", webElement);
+        assertTrue(webElement.isDisplayed());
+        assertTrue(webElement.isEnabled());
+        assertTrue(webElement.isSelected());
     }
 
     /*
      * (non-Javadoc)
-     *
      * @see java.lang.Object#toString()
      */
     @Override
     public String toString() {
-        final StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(String.format("aboutUs = %s", this.aboutUs.toString()));
-        stringBuffer.append(String.format("industries = %s", this.industries.toString()));
-        stringBuffer.append(String.format("services = %s", this.services.toString()));
-        stringBuffer.append(String.format("ourClients = %s", this.clients.toString()));
-        stringBuffer.append(String.format("contactUs = %s", this.contactUs.toString()));
-        return String.format("%s [%s]", this.getClass().getSimpleName(), stringBuffer);
+        final StringBuilder str = new StringBuilder();
+        str.append(String.format("aboutUs = %s,", aboutUs.toString()));
+        str.append(String.format("industries = %s,", industries.toString()));
+        str.append(String.format("services = %s,", services.toString()));
+        str.append(String.format("ourClients = %s,", clients.toString()));
+        str.append(String.format("contactUs = %s", contactUs.toString()));
+        return String.format("%s [%s]", this.getClass().getSimpleName(), str);
     }
 
 }

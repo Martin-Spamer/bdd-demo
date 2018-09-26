@@ -6,6 +6,8 @@ package automation.ddt;
  */
 public class ExpectedData {
 
+    private static final String EXPECTED_DATA = "The expected data";
+
     /**
      * For tag.
      *
@@ -13,7 +15,7 @@ public class ExpectedData {
      * @return the string
      */
     public String forTag(final String string) {
-        return "The expected data";
+        return EXPECTED_DATA;
     }
 
 }

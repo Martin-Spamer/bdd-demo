@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
  */
 public final class AboutPage extends Navigation {
 
+    private static final String PAGE_URL = "http://localhost:8080/example/about.html";
+
     /**
      * Instantiates a new about page.
      */
@@ -31,7 +33,7 @@ public final class AboutPage extends Navigation {
      */
     @Override
     protected String pageUrl() {
-        return "http://127.0.0.1:8080/example/about.html";
+        return PAGE_URL;
     }
 
 }
