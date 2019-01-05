@@ -1,7 +1,7 @@
 {
-"driver":"Alice",
-"vehicle":"Car",
-"fuel":"Petrol"
+	"driver": "Alice",
+	"vehicle": "Car",
+	"fuel": "Petrol"
 },{
 "driver":"Bob",
 "vehicle":"Taxi",

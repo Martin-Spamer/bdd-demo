@@ -6,7 +6,7 @@
 
 	<groupId>spamer.me.uk</groupId>
 	<artifactId>bdd-demo</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Demo of Cucumber-JVM with WebDriver</name>
@@ -16,14 +16,14 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
-		<java.version>1.7</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>1.8</java.version>
 
 		<junit.version>4.12</junit.version>
 		<slf4j.version>1.7.25</slf4j.version>
 		<cucumber.version>3.0.2</cucumber.version>
-		<selenium.version>3.12.0</selenium.version>
+		<selenium.version>3.141.59</selenium.version>
 
 		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
 		<maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>

@@ -1,6 +1,8 @@
 
 package automation.bdd.example;
 
+import static automation.TestContext.assumeLocalTomcat;
+
 import automation.webdriver.example.ExampleWebSite;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
@@ -20,7 +22,8 @@ public final class WebSiteTestSteps {
      */
     @Given("the web site landing page")
     public void landingPage() {
-        site.open();
+        assumeLocalTomcat();
+        this.site.open();
     }
 
     /**
@@ -30,7 +33,7 @@ public final class WebSiteTestSteps {
      */
     @Given("the page {string} is opened")
     public void thePageIsOpened(final String siteUrl) {
-        site.open(siteUrl);
+        this.site.open(siteUrl);
     }
 
     /**
@@ -39,18 +42,17 @@ public final class WebSiteTestSteps {
      */
     @When("the landing page is loaded")
     public void thePageIsLoaded() {
-        site.thePageIsLoaded();
+        this.site.thePageIsLoaded();
     }
 
     /**
      * The page contains {string} link.
      *
-     * @param text
-     *            the text
+     * @param text the text
      */
     @When("the page contains {string} link")
     public void thePageContains(final String text) {
-        site.thePageContains(text);
+        this.site.thePageContains(text);
     }
 
     /**
@@ -58,7 +60,7 @@ public final class WebSiteTestSteps {
      */
     @When("the page has a valid navigation bar")
     public void thePageIsValid() {
-        site.verify();
+        this.site.verify();
     }
 
     /**
@@ -68,7 +70,7 @@ public final class WebSiteTestSteps {
      */
     @When("we click the {string} link")
     public void weClick(final String text) {
-        site.click(text);
+        this.site.click(text);
     }
 
     /**
@@ -76,7 +78,7 @@ public final class WebSiteTestSteps {
      */
     @Then("the page is closed")
     public void thePageIsClosed() {
-        site.close();
+        this.site.close();
     }
 
     /**
@@ -84,7 +86,7 @@ public final class WebSiteTestSteps {
      */
     @Then("the browser is closed")
     public void theBrowserIsClosed() {
-        site.quit();
+        this.site.quit();
     }
 
     /**
@@ -92,7 +94,7 @@ public final class WebSiteTestSteps {
      */
     @After
     private void after() {
-        site.quit();
+        this.site.quit();
     }
 
 }

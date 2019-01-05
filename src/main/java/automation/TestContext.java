@@ -1,47 +1,49 @@
 
 package automation;
 
+import static org.junit.Assume.assumeTrue;
+
 /**
  * TestContext class.
  */
 public final class TestContext {
 
-    private static final String SELENIUM_GRID_URL = "http://localhost:4444";
-    private static final String TOMCAT_URL = "http://localhost:8080";
+    private static final String LOCAL_TOMCAT_URL = "http://localhost:8080";
+    private static final String LOCAL_SELENIUM_URL = "http://localhost:4444";
+    private static final String LOCAL_JENKINS_URL = "http://localhost:8080";
 
     /**
-     * Private constructor to prevent instantiation.
+     * Private constructor to prevent instantiation. Contains only static helper
+     * methods, suggest using static import. import static
+     * automation.TestContext.*;
      */
     private TestContext() {
         super();
     }
 
-    /**
-     * Run WebDriver Headless.
-     *
-     * @return true, if headless
-     */
-    public static boolean headless() {
-        final String property = System.getProperty("headless", "TRUE");
-        return Boolean.valueOf(property);
+    public static boolean assumeLocal() {
+        assumeTrue(isLocal());
+        return true;
     }
 
-    /**
-     * Target platform.
-     *
-     * @return the string
-     */
-    public static String targetPlatform() {
-        return System.getProperty("targetPlatform", "dev");
+    public static boolean assumeJenkins() {
+        assumeTrue(isJenkins());
+        return true;
     }
 
-    /**
-     * Target environment.
-     *
-     * @return the string
-     */
-    public static String targetEnvironment() {
-        return System.getProperty("targetEnvironment", "local");
+    public static boolean assumeLocalTomcat() {
+        assumeTrue(isTomcat());
+        return true;
+    }
+
+    public static boolean assumeSeleniumGrid() {
+        assumeTrue(isSeleniumGrid());
+        return true;
+    }
+
+    public static boolean assumeHeadless() {
+        assumeTrue(isHeadless());
+        return true;
     }
 
     /**
@@ -55,12 +57,22 @@ public final class TestContext {
     }
 
     /**
+     * Run WebDriver Headless.
+     *
+     * @return true, if headless
+     */
+    public static boolean isHeadless() {
+        final String property = System.getProperty("isHeadless", "TRUE");
+        return Boolean.valueOf(property);
+    }
+
+    /**
      * Local browser.
      *
      * @return the string
      */
     public static String localBrowser() {
-        return System.getProperty("localBrowser", "Chrome");
+        return System.getProperty("localBrowser", "Firefox");
     }
 
     /**
@@ -79,7 +91,7 @@ public final class TestContext {
      * @return the string
      */
     public static String tomcatUrl() {
-        return System.getProperty("tomcatUrl", TOMCAT_URL);
+        return System.getProperty("tomcatUrl", LOCAL_TOMCAT_URL);
     }
 
     /**
@@ -92,13 +104,17 @@ public final class TestContext {
         return Boolean.valueOf(property);
     }
 
+    public static String jenkinstUrl() {
+        return System.getProperty("tomcatUrl", LOCAL_JENKINS_URL);
+    }
+
     /**
      * Checks if is grid.
      *
      * @return true, if checks if is grid
      */
-    public static boolean isGrid() {
-        final String property = System.getProperty("isGrid");
+    public static boolean isSeleniumGrid() {
+        final String property = System.getProperty("isSeleniumGrid");
         return Boolean.valueOf(property);
     }
 
@@ -107,8 +123,8 @@ public final class TestContext {
      *
      * @return the string
      */
-    public static String gridUrl() {
-        return System.getProperty("seleniumUrl", SELENIUM_GRID_URL);
+    public static String seleniumGridUrl() {
+        return System.getProperty("seleniumUrl", LOCAL_SELENIUM_URL);
     }
 
     /**
@@ -117,8 +133,7 @@ public final class TestContext {
      * @return the long
      */
     public static long pageWait() {
-        final String property = System.getProperty("pageWait", "4");
-        return Long.parseLong(property);
+        return Long.parseLong(System.getProperty("pageWait", "4"));
     }
 
     /**
@@ -127,8 +142,7 @@ public final class TestContext {
      * @return the implicitWait as long value.
      */
     public static long implicitWait() {
-        final String property = System.getProperty("implicitWait", "100");
-        return Long.parseLong(property);
+        return Long.parseLong(System.getProperty("implicitWait", "100"));
     }
 
     /**
@@ -137,8 +151,29 @@ public final class TestContext {
      * @return the explicitWait as long value.
      */
     public static long explicitWait() {
-        final String property = System.getProperty("explicitWait", "1000");
-        return Long.parseLong(property);
+        return Long.parseLong(System.getProperty("explicitWait", "1000"));
+    }
+
+    public static long retryInterval() {
+        return Long.parseLong(System.getProperty("retryInterval", "100"));
+    }
+
+    /**
+     * Target platform.
+     *
+     * @return the string
+     */
+    public static String targetPlatform() {
+        return System.getProperty("targetPlatform", "dev");
+    }
+
+    /**
+     * Target environment.
+     *
+     * @return the string
+     */
+    public static String targetEnvironment() {
+        return System.getProperty("targetEnvironment", "local");
     }
 
 }

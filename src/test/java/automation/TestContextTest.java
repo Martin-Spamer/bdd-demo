@@ -1,7 +1,17 @@
 
 package automation;
 
+import static automation.TestContext.assumeHeadless;
+import static automation.TestContext.assumeJenkins;
+import static automation.TestContext.assumeLocal;
+import static automation.TestContext.assumeLocalTomcat;
+import static automation.TestContext.assumeSeleniumGrid;
+import static automation.TestContext.isJenkins;
+
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
@@ -11,67 +21,68 @@ import static org.junit.Assume.assumeTrue;
  */
 public final class TestContextTest {
 
-    /**
-     * Unit test to check if running in a local environment.
-     */
+    @Test
+    public void testAssumeLocal() {
+        if (TestContext.isLocal()) {
+            assumeLocal();
+            assertTrue(assumeLocal());
+        }
+    }
+
+    @Test
+    public void testAssumeJenkins() {
+        if (isJenkins()) {
+            assumeJenkins();
+            assertTrue(assumeJenkins());
+        }
+    }
+
+    @Test
+    public void testAssumeLocalTomcat() {
+        assumeLocalTomcat();
+    }
+
+    @Test
+    public void testAssumeSeleniumGrid() {
+        assumeSeleniumGrid();
+    }
+
+    @Test
+    public void testAssumeHeadless() {
+        assumeHeadless();
+    }
+
     @Test
     public void testIsLocal() {
         assumeTrue(TestContext.isLocal());
     }
 
-    /**
-     * Unit test to check if the WebDriver tests should be run Headless.
-     *
-     * @return true, if headless
-     */
-    public static boolean headless() {
-        final String property = System.getProperty("headless", "TRUE");
-        return Boolean.valueOf(property);
+    public void testIsHeadless() {
+        assumeTrue(TestContext.isHeadless());
+    }
+
+    public void testLocalBrowser() {
+        assertNotNull(TestContext.localBrowser());
     }
 
     /**
-     * Unit test to check if target system is local.
-     *
-     * @return the string
-     */
-    public static String targetEnvironment() {
-        return System.getProperty("targetEnvironment", "local");
-    }
-
-    /**
-     * Unit test to check if local browsers are available.
-     *
-     * @return true, if checks if is local
-     */
-    public static boolean isLocal() {
-        final String property = System.getProperty("isLocal");
-        return Boolean.valueOf(property);
-    }
-
-    /**
-     * Unit test to check Identify the Local browser to be targeted.
-     *
-     * @return the string
-     */
-    public static String localBrowser() {
-        return System.getProperty("localBrowser", "Chrome");
-    }
-
-    /**
-     * Unit test to check if Apache Tomcat is available locally.
+     * Unit test to check if Apache Tomcat is available locally. If Tomcat is
+     * available, the URL must be provided.
      */
     @Test
     public void testIsTomcat() {
         assumeTrue(TestContext.isTomcat());
-        assumeNotNull(TestContext.tomcatUrl());
+        assertNotNull(TestContext.tomcatUrl());
     }
 
     /**
-     * Unit test to check if running under Jenkins.
+     * Unit test to check if running under Jenkins. If Jenkins is available, the
+     * URL must be provided.
      */
     @Test
     public void testIsJenkins() {
         assumeTrue(TestContext.isJenkins());
+        assertNotNull(TestContext.jenkinstUrl());
     }
 
     /**
@@ -80,9 +91,9 @@ public final class TestContextTest {
      * @return true, if checks if is grid
      */
     @Test
-    public void testIsGrid() {
-        assumeTrue(TestContext.isGrid());
-        assumeNotNull(TestContext.gridUrl());
+    public void testIsSeleniumGrid() {
+        assumeTrue(TestContext.isSeleniumGrid());
+        assumeNotNull(TestContext.seleniumGridUrl());
     }
 
     /**
@@ -93,6 +104,16 @@ public final class TestContextTest {
         assumeTrue(TestContext.pageWait() > 0);
         assumeTrue(TestContext.implicitWait() > 0);
         assumeTrue(TestContext.explicitWait() > 0);
+        assumeTrue(TestContext.retryInterval() > 0 && TestContext.retryInterval() < TestContext.explicitWait());
+    }
+
+    /**
+     * Unit test to check if target system is local.
+     *
+     * @return the string
+     */
+    public static String targetEnvironment() {
+        return System.getProperty("targetEnvironment", "local");
     }
 
 }

@@ -1,6 +1,8 @@
 
 package automation.webdriver;
 
+import static automation.TestContext.assumeLocalTomcat;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,8 +38,7 @@ public abstract class AbstractPageObject {
     /**
      * Instantiates a new page object.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     public AbstractPageObject(final WebDriver webDriver) {
         super();
@@ -51,17 +52,18 @@ public abstract class AbstractPageObject {
     private void configureTimeOut() {
         final int timeOutInSeconds = 1;
         final int retryInterval = 100;
-        webDriverWait = new WebDriverWait(webDriver, timeOutInSeconds, retryInterval);
+        this.webDriverWait = new WebDriverWait(this.webDriver, timeOutInSeconds, retryInterval);
     }
 
     /**
-     * Page url.
-     *
-     * @return the string
+     * Default Page URL. Should be overridden, defaults to localhost.
+     * 
+     * @TODO: Consider throwing exception if not defined?
+     * @return the URL as a String.
      */
     protected String pageUrl() {
         // look for @PageUrl
-        return null;
+        return "http://localhost:8080";
     }
 
     /**
@@ -70,6 +72,7 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     public AbstractPageObject open() {
+        assumeLocalTomcat();
         return open(pageUrl());
     }
 
@@ -80,10 +83,10 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     public AbstractPageObject open(final String pageUrl) {
-        assertNotNull("webDriver must be defined for PageObject", webDriver);
+        assertNotNull("webDriver must be defined for PageObject", this.webDriver);
         assertNotNull("pageUrl must be defined for PageObject", pageUrl);
-        webDriver.get(pageUrl);
-        PageFactory.initElements(webDriver, this);
+        this.webDriver.get(pageUrl);
+        PageFactory.initElements(this.webDriver, this);
         return this;
     }
 
@@ -91,8 +94,8 @@ public abstract class AbstractPageObject {
      * Checks if this page has loaded.
      */
     public void isLoaded() {
-        assertNotNull(webDriver.getCurrentUrl());
-        assertNotNull(webDriver.getTitle());
+        assertNotNull(this.webDriver.getCurrentUrl());
+        assertNotNull(this.webDriver.getTitle());
     }
 
     /**
@@ -102,7 +105,7 @@ public abstract class AbstractPageObject {
      * @see org.openqa.selenium.WebDriver#getCurrentUrl()
      */
     public String getCurrentUrl() {
-        return webDriver.getCurrentUrl();
+        return this.webDriver.getCurrentUrl();
     }
 
     /**
@@ -112,7 +115,7 @@ public abstract class AbstractPageObject {
      * @see org.openqa.selenium.WebDriver#getTitle()
      */
     public String getTitle() {
-        return webDriver.getTitle();
+        return this.webDriver.getTitle();
     }
 
     /**
@@ -121,7 +124,7 @@ public abstract class AbstractPageObject {
      * @return the abstract page object
      */
     public AbstractPageObject verify() {
-        PageFactory.initElements(webDriver, this);
+        PageFactory.initElements(this.webDriver, this);
         return this;
     }
 
@@ -144,7 +147,7 @@ public abstract class AbstractPageObject {
      * @param text the text
      */
     public void click(final String text) {
-        webDriver.findElement(By.linkText(text));
+        this.webDriver.findElement(By.linkText(text));
     }
 
     /**
@@ -154,25 +157,25 @@ public abstract class AbstractPageObject {
      */
     public void contains(final String text) {
         assertNotNull(text);
-        assertTrue(webDriver.getPageSource().contains(text));
+        assertTrue(this.webDriver.getPageSource().contains(text));
     }
 
     /**
      * Close the webDriver instance.
      */
     public void close() {
-        assertNotNull(webDriver);
-        webDriver.close();
-        webDriver = null;
+        assertNotNull(this.webDriver);
+        this.webDriver.close();
+        this.webDriver = null;
     }
 
     /**
      * Quit.
      */
     public void quit() {
-        assertNotNull(webDriver);
-        webDriver.quit();
-        webDriver = null;
+        assertNotNull(this.webDriver);
+        this.webDriver.quit();
+        this.webDriver = null;
     }
 
 }

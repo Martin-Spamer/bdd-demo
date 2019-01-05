@@ -7,24 +7,26 @@ Feature: A Gherkin idiom
 Scenario: A test passes when the Acceptance Criteria are confirmed
 	Given an initial context
 	When the event occurs
-	Then expected outcome is confirmed
+	Then the expected outcome is confirmed
 
 Scenario: A test fails when the Acceptance Criteria are not confirmed
 	Given an initial context
 	When the event occurs
-	Then expected outcome is not confirmed
+	Then the expected outcome is not confirmed
 
 Scenario: The test skips when the assumption is false.
 	Given an initial context is false
 	When the event occurs
 	Then expected outcome is incomplete
 
+@Ignore
 Scenario: Acceptance Criteria is incomplete
 	Given an initial context
 	When the event occurs
 	#  The following shows an expected test failure. 
 	Then expected outcome is incomplete
 
+@Ignore
 Scenario: Acceptance Criteria is bugged
 	Given an initial context
 	When the event occurs

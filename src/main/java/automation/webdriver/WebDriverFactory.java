@@ -186,7 +186,7 @@ public enum WebDriverFactory {
 
         URL gridUrl;
         try {
-            gridUrl = new URL(TestContext.gridUrl());
+            gridUrl = new URL(TestContext.seleniumGridUrl());
             return new RemoteWebDriver(gridUrl, desiredCapabilities);
         } catch (final MalformedURLException e) {
             log.error(e.getLocalizedMessage(), e);

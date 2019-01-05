@@ -10,8 +10,7 @@ import static org.junit.Assert.assertTrue;
 import automation.webdriver.AbstractPageObject;
 
 /**
- * A Page Object for Navigation.
- * A Page Object can be a fragment of a page.
+ * A Page Object for Navigation. A Page Object can be a fragment of a page.
  */
 public abstract class Navigation extends AbstractPageObject {
 
@@ -45,8 +44,7 @@ public abstract class Navigation extends AbstractPageObject {
     /**
      * Instantiates a new navigation.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     public Navigation(final WebDriver webDriver) {
         super(webDriver);
@@ -59,11 +57,11 @@ public abstract class Navigation extends AbstractPageObject {
     @Override
     public AbstractPageObject verify() {
         super.verify();
-        verifyWebElement(aboutUs);
-        verifyWebElement(industries);
-        verifyWebElement(services);
-        verifyWebElement(clients);
-        verifyWebElement(contactUs);
+        verifyWebElement(this.aboutUs);
+        verifyWebElement(this.industries);
+        verifyWebElement(this.services);
+        verifyWebElement(this.clients);
+        verifyWebElement(this.contactUs);
         return this;
     }
 
@@ -73,7 +71,7 @@ public abstract class Navigation extends AbstractPageObject {
      * @param webElement the web element
      */
     protected void simulateSomeTestFoo(final WebElement webElement) {
-        log.info("{}", webElement);
+        this.log.debug("webElement : {}", webElement);
         assertTrue(webElement.isDisplayed());
         assertTrue(webElement.isEnabled());
         assertTrue(webElement.isSelected());
@@ -86,11 +84,11 @@ public abstract class Navigation extends AbstractPageObject {
     @Override
     public String toString() {
         final StringBuilder str = new StringBuilder();
-        str.append(String.format("aboutUs = %s,", aboutUs.toString()));
-        str.append(String.format("industries = %s,", industries.toString()));
-        str.append(String.format("services = %s,", services.toString()));
-        str.append(String.format("ourClients = %s,", clients.toString()));
-        str.append(String.format("contactUs = %s", contactUs.toString()));
+        str.append(String.format("aboutUs = %s,", this.aboutUs.toString()));
+        str.append(String.format("industries = %s,", this.industries.toString()));
+        str.append(String.format("services = %s,", this.services.toString()));
+        str.append(String.format("ourClients = %s,", this.clients.toString()));
+        str.append(String.format("contactUs = %s", this.contactUs.toString()));
         return String.format("%s [%s]", this.getClass().getSimpleName(), str);
     }
 
