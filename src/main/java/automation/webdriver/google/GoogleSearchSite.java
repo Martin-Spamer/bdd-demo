@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import automation.webdriver.AbstractWebSite;
+import net.atf4j.webdriver.AbstractWebSite;
 
 /**
  * The GoogleSearchSite class.
@@ -25,8 +25,7 @@ public final class GoogleSearchSite extends AbstractWebSite {
     /**
      * Instantiates a new google search site.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     public GoogleSearchSite(final WebDriver webDriver) {
         super();
@@ -44,16 +43,15 @@ public final class GoogleSearchSite extends AbstractWebSite {
 
         // Create a new instance of the search page class
         // and initialise any WebElement fields in it.
-        googleSearchPage = PageFactory.initElements(webDriver, GoogleSearchPage.class);
+        this.googleSearchPage = PageFactory.initElements(webDriver, GoogleSearchPage.class);
 
-        Assert.assertNotNull(googleSearchPage);
+        Assert.assertNotNull(this.googleSearchPage);
     }
 
     /**
      * Verify.
      *
-     * @param text
-     *            the text
+     * @param text the text
      */
     public void verify(final String text) {
         Assert.assertNotNull(webDriver);
@@ -68,12 +66,11 @@ public final class GoogleSearchSite extends AbstractWebSite {
     /**
      * Query.
      *
-     * @param text
-     *            the text
+     * @param text the text
      */
     public void query(final String text) {
         Assert.assertNotNull(webDriver);
-        googleSearchPage.query(text);
+        this.googleSearchPage.query(text);
     }
 
 }

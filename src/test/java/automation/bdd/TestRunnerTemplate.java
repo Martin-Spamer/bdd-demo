@@ -10,6 +10,7 @@ import static org.junit.Assume.assumeNotNull;
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
+import net.atf4j.core.TestContext;
 
 /**
  * A Template for a Test Runner for Cucumber feature files.
@@ -17,8 +18,7 @@ import cucumber.api.junit.Cucumber;
  * Run all test labelled but not those marked with <code>@Ignore</code> tag.
  * <code>tags = { "not @Ignore" }</code>
  *
- * Local for the feature files.
- * <code>features = "classpath:features"</code>
+ * Local for the feature files. <code>features = "classpath:features"</code>
  *
  * The namespace package containing the steps implementation.
  * <code>glue = "automation.bdd"</code>
@@ -26,16 +26,10 @@ import cucumber.api.junit.Cucumber;
  * Generate step code snippets will use Java naming convention.
  * <code>snippets = SnippetType.CAMELCASE</code>
  *
- * Generate monochrome test report
- * <code>monochrome = true</code>
+ * Generate monochrome test report <code>monochrome = true</code>
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(
-        tags = { "@Nothing" },
-        features = "classpath:features",
-        glue = "automation.bdd",
-        snippets = SnippetType.CAMELCASE,
-        monochrome = true)
+@CucumberOptions(tags = { "@Nothing" }, features = "classpath:features", glue = "automation.bdd", snippets = SnippetType.CAMELCASE, monochrome = true)
 public final class TestRunnerTemplate extends AbstractTestRunner {
 
     /**
@@ -45,11 +39,10 @@ public final class TestRunnerTemplate extends AbstractTestRunner {
      */
     @Before
     private void before() {
-        LOG.info("@Before test");
+        this.log.info("@Before test");
+        TestContext.assumeLocalTomcat();
         final String useBrowser = System.getProperty("useBrowser");
-        assumeNotNull(
-                "Expected the target browser to be specified in a Java System property (use -DuseBrowser={Chrome|Edge|Firefox|IE|PhantomJs})",
-                useBrowser);
+        assumeNotNull("Expected the target browser to be specified in a Java System property (use -DuseBrowser={Chrome|Edge|Firefox|IE|PhantomJs})", useBrowser);
     }
 
     /**
@@ -57,7 +50,7 @@ public final class TestRunnerTemplate extends AbstractTestRunner {
      */
     @After
     private void after() {
-        LOG.info("@After test");
+        this.log.info("@After test");
     }
 
 }

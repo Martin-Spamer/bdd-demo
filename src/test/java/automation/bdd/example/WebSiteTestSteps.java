@@ -1,8 +1,6 @@
 
 package automation.bdd.example;
 
-import static automation.TestContext.assumeLocalTomcat;
-
 import automation.webdriver.example.ExampleWebSite;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
@@ -22,7 +20,7 @@ public final class WebSiteTestSteps {
      */
     @Given("the web site landing page")
     public void landingPage() {
-        assumeLocalTomcat();
+        // assumeLocalTomcat();
         this.site.open();
     }
 

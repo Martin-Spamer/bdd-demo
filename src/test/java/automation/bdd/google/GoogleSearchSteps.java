@@ -3,11 +3,11 @@ package automation.bdd.google;
 
 import org.openqa.selenium.WebDriver;
 
-import automation.webdriver.WebDriverFactory;
 import automation.webdriver.google.GoogleSearchSite;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.atf4j.webdriver.WebDriverFactory;
 
 /**
  * The GoogleSearchSteps.
@@ -22,8 +22,8 @@ public final class GoogleSearchSteps {
      */
     @Given("^[the|a] Search Page$")
     public void exampleHomePage() {
-        googleSite = new GoogleSearchSite();
-        googleSite.open();
+        this.googleSite = new GoogleSearchSite();
+        this.googleSite.open();
     }
 
     /**
@@ -34,31 +34,29 @@ public final class GoogleSearchSteps {
     @Given("the Search Page is loaded in the {string} browser")
     public void theGoogleSearchPageIsLoadedIn(final String candidateWebDriverType) {
         final WebDriver webDriver = WebDriverFactory.fromString(candidateWebDriverType).webDriver();
-        googleSite = new GoogleSearchSite(webDriver);
-        googleSite.open();
+        this.googleSite = new GoogleSearchSite(webDriver);
+        this.googleSite.open();
     }
 
     /**
      * We search for.
      *
-     * @param queryText
-     *            the query text
+     * @param queryText the query text
      */
     @When("we search for {string}")
     public void weSearchFor(final String queryText) {
-        googleSite.query(queryText);
+        this.googleSite.query(queryText);
     }
 
     /**
      * Appears in expected results.
      *
-     * @param queryText
-     *            the query text
+     * @param queryText the query text
      */
     @Then("we see {string} appears in the results")
     public void appearsInExpectedResults(final String queryText) {
-        googleSite.verify(queryText);
-        googleSite.quit();
+        this.googleSite.verify(queryText);
+        this.googleSite.quit();
     }
 
 }

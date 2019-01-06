@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.junit.Assert.assertTrue;
 
-import automation.webdriver.AbstractPageObject;
+import net.atf4j.webdriver.page.AbstractPageObject;
 
 /**
  * A Page Object for Navigation. A Page Object can be a fragment of a page.

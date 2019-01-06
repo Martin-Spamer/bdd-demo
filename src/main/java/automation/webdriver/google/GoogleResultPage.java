@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.junit.Assert.assertTrue;
 
-import automation.webdriver.AbstractPageObject;
+import net.atf4j.webdriver.page.AbstractPageObject;
 
 /**
  * The GoogleResultPage.
@@ -28,8 +28,7 @@ public final class GoogleResultPage extends AbstractPageObject {
     /**
      * Instantiates a new google result page.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     public GoogleResultPage(final WebDriver webDriver) {
         super(webDriver);
@@ -47,12 +46,11 @@ public final class GoogleResultPage extends AbstractPageObject {
     /**
      * Verify.
      *
-     * @param text
-     *            the text
+     * @param text the text
      */
     public void verify(final String text) {
-        assertTrue("The found", results.isDisplayed());
-        assertTrue("The found", results.getText().contains(text));
+        assertTrue("The found", this.results.isDisplayed());
+        assertTrue("The found", this.results.getText().contains(text));
     }
 
 }

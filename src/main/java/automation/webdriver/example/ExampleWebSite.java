@@ -1,7 +1,7 @@
 
 package automation.webdriver.example;
 
-import automation.webdriver.AbstractWebSite;
+import net.atf4j.webdriver.AbstractWebSite;
 
 /**
  * An Example WebSite.
@@ -21,8 +21,8 @@ public final class ExampleWebSite extends AbstractWebSite {
      * @return the abstract web site
      */
     public AbstractWebSite open() {
-        page = new LandingPage(webDriver);
-        page.open();
+        this.page = new LandingPage(this.webDriver);
+        this.page.open();
         return this;
     }
 
@@ -33,7 +33,7 @@ public final class ExampleWebSite extends AbstractWebSite {
      * @return the abstract web site
      */
     public AbstractWebSite thePageContains(final String text) {
-        page.contains(text);
+        this.page.contains(text);
         return this;
     }
 
@@ -43,8 +43,11 @@ public final class ExampleWebSite extends AbstractWebSite {
      * @return the abstract web site
      */
     public AbstractWebSite verify() {
-        page.verify();
+        this.page.verify();
         return this;
+    }
+
+    public void click(final String text) {
     }
 
 }

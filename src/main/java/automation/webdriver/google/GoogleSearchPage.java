@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import automation.webdriver.AbstractPageObject;
+import net.atf4j.webdriver.page.AbstractPageObject;
 
 /**
  * The GoogleSearchPage.
@@ -26,8 +26,7 @@ public final class GoogleSearchPage extends AbstractPageObject {
     /**
      * Instantiates a new google search page.
      *
-     * @param webDriver
-     *            the web driver
+     * @param webDriver the web driver
      */
     public GoogleSearchPage(final WebDriver webDriver) {
         super(webDriver);
@@ -45,13 +44,12 @@ public final class GoogleSearchPage extends AbstractPageObject {
     /**
      * Query.
      *
-     * @param text
-     *            the text
+     * @param text the text
      */
     public void query(final String text) {
         // We continue using the element just as before
-        searchBox.sendKeys(text);
-        searchBox.submit();
+        this.searchBox.sendKeys(text);
+        this.searchBox.submit();
     }
 
 }

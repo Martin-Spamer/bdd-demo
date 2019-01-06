@@ -19,7 +19,7 @@ import static org.junit.Assume.assumeNotNull;
 public abstract class AbstractTestRunner {
 
     /** Provides logging. */
-    protected static final Logger LOG = LoggerFactory.getLogger(AbstractTestRunner.class);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
     /**
      * Before test, an excellent place to test any assumptions common to the
@@ -28,11 +28,9 @@ public abstract class AbstractTestRunner {
      */
     @Before
     public void beforeTests() {
-        LOG.info("beforeTests - Executed before all tests in test suite.  Ideal place for data setup.");
+        this.log.info("beforeTests - Executed before all tests in test suite.  Ideal place for data setup.");
         final String targetEnvironment = System.getProperty("targetEnvironment", "local");
-        assumeNotNull(
-                "Expected the target environment to be specified in a Java System property (use -DtargetEnvironment={DEV|SIT|...})",
-                targetEnvironment);
+        assumeNotNull("Expected the target environment to be specified in a Java System property (use -DtargetEnvironment={DEV|SIT|...})", targetEnvironment);
     }
 
     /**
@@ -40,7 +38,7 @@ public abstract class AbstractTestRunner {
      */
     @After
     public void afterTests() {
-        LOG.info("afterTests - Executed after all tests in test suite.  Ideal place for data cleanup.");
+        this.log.info("afterTests - Executed after all tests in test suite.  Ideal place for data cleanup.");
     }
 
 }
